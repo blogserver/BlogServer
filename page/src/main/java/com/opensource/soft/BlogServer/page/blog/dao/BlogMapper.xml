@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.opensource.soft.BlogServer.page.blog.dao.BlogMapper">
+	<resultMap id="BaseResultMap" type="com.opensource.soft.BlogServer.page.blog.model.Blog">
+		<id column="uuid" jdbcType="CHAR" property="uuid" />
+		<result column="title" jdbcType="VARCHAR" property="title" />
+		<result column="location" jdbcType="VARCHAR" property="location" />
+		<result column="version" jdbcType="INTEGER" property="version" />
+		<result column="status" jdbcType="INTEGER" property="status" />
+		<result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+		<result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+		<result column="createuser" jdbcType="INTEGER" property="createuser" />
+		<result column="deleteflag" jdbcType="BIT" property="deleteflag" />
+	</resultMap>
+
+	<select id="findBlogByUuid" parameterType="java.lang.String" resultMap="BaseResultMap">
+		select *
+		from blog
+		WHERE uuid = #{uuid,jdbcType=CHAR}
+	</select>
+
+	<select id="findBlogsByStatus" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select *
+		from blog
+		WHERE status = #{status,jdbcType=INTEGER} and  deleteflag = 0
+		ORDER BY createtime ASC
+	</select>
+	
+	<update id="updateBlogStatusByUuid" parameterType="com.opensource.soft.BlogServer.page.blog.model.Blog">
+    update blog
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null">
+        createuser = #{createuser,jdbcType=INTEGER},
+      </if>
+      <if test="deleteflag != null">
+        deleteflag = #{deleteflag,jdbcType=BIT},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=CHAR}
+  </update>
+</mapper>

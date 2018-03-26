@@ -92,8 +92,4 @@ public class BaseResponse {
                 '}';
     }
     
-    public static void main(String[] args) {
-		System.out.println(BaseResponse.errorJson(ErrorMessage.ERR_PARAM_NO_FIND,"ID"));
-	}
-    
 }
