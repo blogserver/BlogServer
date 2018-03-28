@@ -40,7 +40,7 @@ public class BlogServiceImpl implements BlogService {
 	        boolean isTrue = FreemakerHelper.createHtml("detail", dataSource, location);
 	        if(isTrue) {
 	        	b.setStatus(Constant.BLOGSTATUS.RELEASE_SUCCESS);
-	        	b.setLocation(location.replace(File.separator, "\\"));
+	        	b.setLocation(location.replace(File.separator, "/"));
 	        }else{
 	        	b.setStatus(Constant.BLOGSTATUS.RELEASE_ERROR);
 	        }
