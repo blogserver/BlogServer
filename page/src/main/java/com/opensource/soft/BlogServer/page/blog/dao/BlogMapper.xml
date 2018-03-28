@@ -32,6 +32,9 @@
       <if test="title != null">
         title = #{title,jdbcType=VARCHAR},
       </if>
+      <if test="location != null">
+        location = #{location,jdbcType=VARCHAR},
+      </if>
       <if test="version != null">
         version = #{version,jdbcType=INTEGER},
       </if>
