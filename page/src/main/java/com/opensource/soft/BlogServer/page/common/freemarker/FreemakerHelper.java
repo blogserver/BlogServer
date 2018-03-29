@@ -77,7 +77,7 @@ public class FreemakerHelper {
 				file.getParentFile().mkdirs();
 			}
 			 //动态资源路径
-			dataSource.put("dynamicUrl",webUrl);
+			dataSource.put("staticUrl",webUrl);
 			
 			// 获取或创建一个模版。
 			Template template = cacheftl?getTemplateFromCache(ftlName):getTemplate(ftlName);

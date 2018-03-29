@@ -1,11 +1,11 @@
-package com.opensource.soft.BlogServer.api.controller;
+package com.opensource.soft.BlogServer.api.common.property;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "myblog")
-public class BlogProperties {
+@ConfigurationProperties(prefix = "apiblog")
+public class ApiProperties {
 	
 	private String webSite;
 	
