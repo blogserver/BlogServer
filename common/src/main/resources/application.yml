@@ -1,24 +1,10 @@
 spring:
-  datasource:
-    name: mydev 
-    url: jdbc:mysql://39.106.101.36:3306/blogserver?useUnicode=true&characterEncoding=utf-8
-    username: opensource
-    password: opensource
-    driver-class-name: com.mysql.jdbc.Driver
-    dbcp2:
-      min-idle: 3
-      initial-size: 5
-      time-between-eviction-runs-millis: 3000
-      min-evictable-idle-time-millis: 300000
-      validation-query: SELECT 'ZTM' FROM DUAL
-      test-while-idle: true
-      test-on-borrow: false
-      test-on-return: false
+  profiles:
+    active:
+      - dev
 mybatis:
   mapper-locations: classpath*:com/opensource/soft/BlogServer/**/mapper/*Mapper.xml
   type-aliases-package: com.chinaopensource.soft.BlogServer
-  configuration:
-    mapUnderscoreToCamelCase: true
   
 pagehelper:
   helper-dialect: mysql

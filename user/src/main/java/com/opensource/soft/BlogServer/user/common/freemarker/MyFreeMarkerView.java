@@ -10,8 +10,8 @@ public class MyFreeMarkerView extends FreeMarkerView {
 
 	@Override
 	protected void exposeHelpers(Map<String, Object> model, HttpServletRequest request) throws Exception {
-		model.put("dynamicUrl","http://localhost:8080");
-		model.put("staticUrl", "http://localhost:8080");
+		model.put("dynamicUrl","https://localhost");
+		model.put("staticUrl", "https://localhost");
 		super.exposeHelpers(model, request);
 	}
 
