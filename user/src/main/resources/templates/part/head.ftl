@@ -8,7 +8,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="${staticUrl}">Brand</a>
+                    <a class="navbar-brand" href="/user/">Brand</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -36,9 +36,9 @@
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a id = "headRegister" href="${dynamicUrl}/user/register">注册</a></li>
-                        <li><a id = "headLogin" href="${dynamicUrl}/user/login">登陆</a></li>
-                        <li><a id= "headBlog" href="${dynamicUrl}/blog/">写博客</a></li>
+                        <li><a id = "headRegister" href="/user/register">注册</a></li>
+                        <li><a id = "headLogin" href="/user/login">登陆</a></li>
+                        <li><a id= "headBlog" href="/blog/">写博客</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" id="headLoginName" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
                             <ul class="dropdown-menu">
@@ -46,7 +46,7 @@
                                 <li><a href="#">Another action</a></li>
                                 <li><a href="#">Something else here</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a onclick="logout()" href="${dynamicUrl}/user/logout">退出</a></li>
+                                <li><a onclick="logout()" href="/user/logout">退出</a></li>
                             </ul>
                         </li>
                     </ul>

@@ -72,7 +72,7 @@
     $(document).ready(function() {
         $.ajax({
             type: "GET",
-            url: "${dynamicUrl}/user/info",
+            url: "/user/info",
             success: function(data){
                 //存储用户信息
                 var result = JSON.parse(data);
@@ -126,7 +126,7 @@
     function writerMyBlog() {
         $.ajax({
             type: "GET",
-            url: "${dynamicUrl}/blog/findMyBlog",
+            url: "/blog/findMyBlog",
             success: function(data){
                 //存储用户信息
                 var result = JSON.parse(data);

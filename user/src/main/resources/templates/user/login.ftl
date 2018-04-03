@@ -17,7 +17,7 @@
 		<#include "../part/head.ftl"/>
     </div>
     <div class="row">
-        <form class="form-horizontal"  action="${dynamicUrl}/user/login" method="post">
+        <form class="form-horizontal"  action="/user/login" method="post">
             <div class="form-group">
                 <label for="loginname" class="col-sm-3 control-label">登录名</label>
                 <div class="col-sm-7">
