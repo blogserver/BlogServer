@@ -18,6 +18,6 @@ server:
   port: 9011
 
 pageblog:
-  web-site: D:\\work\\website\\
-  web-url: http://localhost
-  cacheftl: false
+  web-site: /root/software/website/
+  web-url: http://www.chinaopensource.top
+  cacheftl: true

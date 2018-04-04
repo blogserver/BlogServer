@@ -16,7 +16,7 @@ spring:
       test-on-return: false 
 
 server:
-  port: 443
+  port: 8443
   ssl:
     key-store: classpath:mykeys.jks
     key-store-password: 123456

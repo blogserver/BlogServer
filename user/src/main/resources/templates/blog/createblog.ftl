@@ -35,7 +35,8 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="button" class="btn btn-primary btn-lg" onclick="saveBlog()">保存</button>
+                    <button type="button" class="btn btn-primary btn-lg" onclick="saveBlog(0)">保存</button>
+                    <button type="button" class="btn btn-primary btn-lg" onclick="saveBlog(1)">发布</button>
                 </div>
             </form>
 
@@ -66,13 +67,14 @@
 
         });
 
-		function saveBlog() {
+		function saveBlog(status) {
             $.ajax({
                 type: "POST",
                 url: "/blog/saveBlog",
                 data: {
                     "uuid":uuid(),
                     "title":$("#blog_title").val(),
+                    "status":status,
                     "content":editor.getValue()
                 },
                 success: function(data){

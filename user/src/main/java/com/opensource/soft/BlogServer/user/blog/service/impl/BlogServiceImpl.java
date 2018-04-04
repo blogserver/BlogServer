@@ -20,7 +20,7 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public int save(Blog blog) {
-        blog.setStatus(Constant.BLOGSTATUS.SAVE);
+   //     blog.setStatus(Constant.BLOGSTATUS.SAVE);
         blog.setDeleteflag(false);
         blog.setVersion(1);
         blog.setCreateuser(ShiroUser.getUserId());
