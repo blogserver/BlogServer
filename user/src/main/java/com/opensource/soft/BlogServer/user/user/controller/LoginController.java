@@ -113,9 +113,11 @@ public class LoginController {
     public void validateCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setHeader("Cache-Control", "no-cache");
         String verifyCode = ValidateCode.generateTextCode(ValidateCode.TYPE_NUM_ONLY, 4, null);
+        logger.info("图片验证码：{}",verifyCode);
         request.getSession().setAttribute("validateCode", verifyCode);
         response.setContentType("image/jpeg");
         BufferedImage bim = ValidateCode.generateImageCode(verifyCode, 90, 30, 3, true, Color.WHITE, Color.BLACK, null);
         ImageIO.write(bim, "JPEG", response.getOutputStream());
+        response.flushBuffer();
     }
 }

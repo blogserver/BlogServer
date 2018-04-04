@@ -14,3 +14,8 @@ spring:
       test-while-idle: true
       test-on-borrow: false
       test-on-return: false
+apiblog:
+  web-site: D:\\work\\website\\
+  web-url: http://localhost
+server:
+  port: 9001

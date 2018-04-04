@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    name: mydev 
+    url: jdbc:mysql://39.106.101.36:3306/blogserver?useUnicode=true&characterEncoding=utf-8
+    username: liqiwei
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    dbcp2:
+      min-idle: 3
+      initial-size: 5
+      time-between-eviction-runs-millis: 3000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 'ZTM' FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false 
+
+server:
+  port: 443
+  ssl:
+    key-store: classpath:mykeys.jks
+    key-store-password: 123456
+userblog:
+  api-server-url: http://localhost:9001
+  static-url: http://localhost
+  web-site: D:\\work\\website\\

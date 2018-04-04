@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active:
+      - dev
+mybatis:
+  mapper-locations: classpath*:com/opensource/soft/BlogServer/user/**/mapper/*Mapper.xml
+  type-aliases-package: com.chinaopensource.soft.BlogServer.user
+  
+pagehelper:
+  helper-dialect: mysql
