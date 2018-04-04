@@ -113,6 +113,8 @@ public class LoginController {
     public void validateCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setHeader("Cache-Control", "no-cache");
         String verifyCode = ValidateCode.generateTextCode(ValidateCode.TYPE_NUM_ONLY, 4, null);
+        //TODO 本地可以，服务器上不行 ，https图片显示不出来 目前先写死  1234
+        verifyCode = "1234";
         logger.info("图片验证码：{}",verifyCode);
         request.getSession().setAttribute("validateCode", verifyCode);
         response.setContentType("image/jpeg");
