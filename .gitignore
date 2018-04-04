@@ -1,5 +1,6 @@
 # java class files
 *.class
+.factorypath
 
 # package files 
 *.jar
@@ -18,3 +19,4 @@ target/
 *.iml
 .idea/
 /.idea
+/.apt_generated/
