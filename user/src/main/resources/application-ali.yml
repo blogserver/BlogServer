@@ -23,4 +23,4 @@ server:
 userblog:
   api-server-url: http://www.chinaopensource.top:9001
   static-url: http://www.chinaopensource.top
-  web-site: D:\\work\\website\\
+  web-site: /root/software/website/
