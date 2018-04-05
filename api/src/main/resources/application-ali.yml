@@ -14,9 +14,8 @@ spring:
       test-while-idle: true
       test-on-borrow: false
       test-on-return: false
+apiblog:
+  web-site: /root/software/website/
+  web-url: http://www.chinaopensource.top
 server:
-  port: 443
-  ssl:
-    key-store: classpath:214554140770506.pfx
-    key-store-password: 214554140770506
-    key-store-type: PKCS12
+  port: 9001
