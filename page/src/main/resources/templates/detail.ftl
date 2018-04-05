@@ -24,7 +24,7 @@
 	<!--页面内容-->
     <div class="container-fluid">
     	<!--页面头部-->
-        <div class="row" id="header" style="height:  50px;">
+        <div class="row" id="header" style="height:  70px;">
         	this is header
         </div>
         <!--页面中心内容-->

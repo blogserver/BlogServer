@@ -2,8 +2,7 @@
 *	博客详细页面的JS
 *	v1.0
 */
-//var BaseUrl = "http://www.chinaopensource.top";
-var BaseUrl = "http://localhost"
+var BaseUrl = window.location.protocol+"//"+window.location.host;
 var ApiServerUrl = BaseUrl+":9001";
 
 /**
