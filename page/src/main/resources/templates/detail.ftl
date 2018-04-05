@@ -16,15 +16,35 @@
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     
+    <!-- blog系统css -->
+    <link href="${staticUrl}/static/css/detail.css" rel="stylesheet">
+    
 </head>
 <body>
+	<!--页面内容-->
     <div class="container-fluid">
-        <div class="row">
+    	<!--页面头部-->
+        <div class="row" id="header" style="height:  50px;">
+        	this is header
         </div>
+        <!--页面中心内容-->
         <div class="row">
-            ${blog.content}
+        	<!--左侧导航-->
+        	<div class="col-md-2 col-xs-3" id="left">
+        		<input type="hidden" id = "blogUserId" value="${blog.createuser}">
+        	</div>
+        	<!--博客详细内容-->
+        	<div class="col-md-8 col-xs-6" id="center">
+        		<h3>${blog.title}</h3>
+        		<h5>创建时间:${blog.createtimestr}</h5>
+	        	${blog.content}
+        	</div>
+        	<!--右侧导航-->
+        	<div class="col-md-2 col-xs-3" id="right">右侧</div>
         </div>
-        <div class="row">
+        <!--页面脚-->
+        <div class="row" id="footer">
+        	this is footer
         </div>
     </div>
     
@@ -32,6 +52,9 @@
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <!-- blog系统JS -->
+    <script src="${staticUrl}/static/js/detail.js"></script>
     
 </body>
 </html>

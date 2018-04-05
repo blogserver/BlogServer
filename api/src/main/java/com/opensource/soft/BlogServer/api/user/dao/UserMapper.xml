@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.opensource.soft.BlogServer.api.user.dao.UserMapper">
+
+	<resultMap id="BaseResultMap" type="com.opensource.soft.BlogServer.api.user.model.User">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="loginname" jdbcType="VARCHAR" property="loginname" />
+		<result column="password" jdbcType="VARCHAR" property="password" />
+		<result column="salt" jdbcType="VARCHAR" property="salt" />
+		<result column="status" jdbcType="INTEGER" property="status" />
+		<result column="nickname" jdbcType="VARCHAR" property="nickname" />
+		<result column="photo" jdbcType="VARCHAR" property="photo" />
+		<result column="phone" jdbcType="VARCHAR" property="phone" />
+		<result column="email" jdbcType="VARCHAR" property="email" />
+		<result column="createTime" javaType="java.sql.Timestamp" property="createTime"/>
+		<result column="updateTime" javaType="java.sql.Timestamp" property="updateTime"/>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		id, loginname, nickname, photo, phone, email, createTime, updateTime
+	</sql>
+
+	<select id="selectByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+
+</mapper>

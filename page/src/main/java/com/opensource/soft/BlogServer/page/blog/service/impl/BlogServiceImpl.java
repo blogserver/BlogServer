@@ -1,6 +1,7 @@
 package com.opensource.soft.BlogServer.page.blog.service.impl;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -36,6 +37,8 @@ public class BlogServiceImpl implements BlogService {
 	        String location ="blog" +File.separator+ PathUtil.htmlPath()+ File.separator+blog.getUuid()+".html";
 	        //生成页面
 	        Map<String, Object> dataSource = new HashMap<String, Object>();
+			SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			blog.setCreatetimestr(sf.format(blog.getCreatetime()));
 	        dataSource.put("blog", blog);
 	        boolean isTrue = FreemakerHelper.createHtml("detail", dataSource, location);
 	        if(isTrue) {

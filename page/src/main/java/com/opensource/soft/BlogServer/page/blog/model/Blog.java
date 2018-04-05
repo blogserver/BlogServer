@@ -13,6 +13,8 @@ public class Blog {
     private Integer status;
 
     private Date createtime;
+    
+    private String createtimestr;
 
     private Date updatetime;
 
@@ -64,7 +66,15 @@ public class Blog {
         this.createtime = createtime;
     }
 
-    public Date getUpdatetime() {
+    public String getCreatetimestr() {
+		return createtimestr;
+	}
+
+	public void setCreatetimestr(String createtimestr) {
+		this.createtimestr = createtimestr;
+	}
+
+	public Date getUpdatetime() {
         return updatetime;
     }
 

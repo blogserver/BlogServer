@@ -15,6 +15,10 @@
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+        
+    <!-- blog系统css -->
+    <link href="${staticUrl}/static/css/detail.css" rel="stylesheet">
+    
 </head>
 <body>
     <div class="container-fluid">
@@ -52,6 +56,8 @@
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    
-	<script src="${staticUrl}/resources/js/index.js"></script>
+	<!-- blog系统JS -->
+    <script src="${staticUrl}/static/js/index.js"></script>
+    
 </body>
 </html>

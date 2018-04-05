@@ -1,20 +1,27 @@
 package com.opensource.soft.BlogServer.api.blog.controller;
 
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.opensource.soft.BlogServer.api.blog.service.BlogService;
 import com.opensource.soft.BlogServer.common.BaseResponse;
 
 @RestController
 @RequestMapping("/blog")
 public class BlogController{
 	
-	@RequestMapping(value = "/{blogUuId}" , method = RequestMethod.GET)
-	public String findBlog(@PathVariable String blogUuId, @RequestParam(name = "version" ,required = false)Integer version) {
-		return BaseResponse.successJson();
+	@Autowired
+	private BlogService blogService;
+	
+	/**
+	 * 获取最新的blog内容
+	 * @return
+	 */
+	@RequestMapping(value = "/news" , method = RequestMethod.GET)
+	public String findNewBlogs() {
+		return BaseResponse.successJson(blogService.findNewBlogs());
 	}
 	
 }

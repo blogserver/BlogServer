@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.opensource.soft.BlogServer.api.blog.dao.BlogMapper">
+	<resultMap id="BaseResultMap" type="com.opensource.soft.BlogServer.api.blog.model.Blog">
+		<id column="uuid" jdbcType="CHAR" property="uuid" />
+		<result column="title" jdbcType="VARCHAR" property="title" />
+		<result column="location" jdbcType="VARCHAR" property="location" />
+		<result column="version" jdbcType="INTEGER" property="version" />
+		<result column="status" jdbcType="INTEGER" property="status" />
+		<result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+		<result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+		<result column="createuser" jdbcType="INTEGER" property="createuser" />
+		<result column="deleteflag" jdbcType="BIT" property="deleteflag" />
+	</resultMap>
+
+	<select id="findNewBlogs" parameterType="com.opensource.soft.BlogServer.api.blog.model.Blog" resultMap="BaseResultMap">
+		select uuid,title,location,version,status,createtime,updatetime,createuser
+		from blog
+		WHERE status = #{status,jdbcType=INTEGER} and  deleteflag = 0
+		ORDER BY createtime DESC
+	</select>
+</mapper>
