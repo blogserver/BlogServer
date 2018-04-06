@@ -74,18 +74,18 @@
 
 <script type="text/javascript">
 	function reloadValidateCode(){
-		$("#validateCodeImg").attr("src","${dynamicUrl}/user/validateCode?data=" + new Date() + Math.floor(Math.random()*24));
+		$("#validateCodeImg").attr("src","validateCode?data=" + new Date() + Math.floor(Math.random()*24));
 	}
 
 	function register() {
         $.ajax({
             type: "POST",
-            url: "${dynamicUrl}/user/addUser",
+            url: "/user/addUser",
             data: $('#userRegister').serialize(),
             success: function(data){
                 var result = JSON.parse(data);
                 if(result.code == 0){
-                    window.location.href="${dynamicUrl}/user/login";
+                    window.location.href="/user/login";
                 }else {
                     alert(result.message);
                 }

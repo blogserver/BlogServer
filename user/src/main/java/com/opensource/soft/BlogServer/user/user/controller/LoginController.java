@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -72,7 +73,7 @@ public class LoginController {
 
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String logindata(HttpServletRequest request,String loginname ,String password ,String validateCode , Model model) {
+	public String logindata(HttpServletResponse response, HttpServletRequest request,String loginname ,String password ,String validateCode , Model model) {
 		String sessionValidateCode = (String) request.getSession().getAttribute("validateCode");
 		if(!validateCode.equals(sessionValidateCode)) {
 			return "redirect:/user/login";
@@ -90,6 +91,10 @@ public class LoginController {
             logger.error(e.getMessage(), e);
             return "redirect:/user/login";
         }
+        
+        Cookie cookie = new Cookie("username", ShiroUser.getUser().getNickname());
+        cookie.setPath("/");
+		response.addCookie(cookie);
 		return "redirect:/user/";
 	}
 	
