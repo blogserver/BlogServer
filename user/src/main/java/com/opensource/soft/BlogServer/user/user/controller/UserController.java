@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping(value="/user")
 public class UserController {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
 	private UserService userService;
