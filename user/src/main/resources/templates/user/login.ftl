@@ -16,6 +16,14 @@
     </div>
     <div class="row">
         <form class="form-horizontal"  action="/user/login" method="post">
+	        <#if errMsg??>
+	        	<div class="alert alert-danger alert-dismissible fade in" role="alert" id="myAlert">
+			        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+					</button>
+			        	<p style="text-align: center;">${errMsg}</p>
+			    </div>
+	        </#if>
             <div class="form-group">
                 <label for="loginname" class="col-sm-3 control-label">登录名</label>
                 <div class="col-sm-7">

@@ -2,6 +2,7 @@ package com.opensource.soft.BlogServer.user.user.controller;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -76,7 +77,8 @@ public class LoginController {
 	public String logindata(HttpServletResponse response, HttpServletRequest request,String loginname ,String password ,String validateCode , Model model) {
 		String sessionValidateCode = (String) request.getSession().getAttribute("validateCode");
 		if(!validateCode.equals(sessionValidateCode)) {
-			return "redirect:/user/login";
+			model.addAttribute("errMsg", "验证码错误");
+			return "user/login";
 		}
 		
 		Subject user = SecurityUtils.getSubject();
@@ -124,7 +126,12 @@ public class LoginController {
         request.getSession().setAttribute("validateCode", verifyCode);
         response.setContentType("image/jpeg");
         BufferedImage bim = ValidateCode.generateImageCode(verifyCode, 90, 30, 3, true, Color.WHITE, Color.BLACK, null);
-        ImageIO.write(bim, "JPEG", response.getOutputStream());
-        response.flushBuffer();
+        
+        ByteArrayOutputStream tmp = new ByteArrayOutputStream();
+        ImageIO.write(bim, "JPEG", tmp);
+        tmp.close();
+        Integer contentLength = tmp.size();
+        response.setHeader("content-length", contentLength + "");
+        response.getOutputStream().write(tmp.toByteArray());// 将内存中的图片通过流动形式输出到客户端
     }
 }
