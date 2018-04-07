@@ -147,7 +147,7 @@
     function settingNewBlogList(data) {
         var html="";
         $.each(data,function (index,ele) {
-            html += "<div><a href='${staticUrl}/"+ele.location+"'>"+ele.title+"</a></div>"
+            html += "<div><a target='_blank' href='http://"+window.location.host+"/"+ele.location+"'>"+ele.title+"</a></div>"
         });
         $("#myBlogDiv").html(html);
     }

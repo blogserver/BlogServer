@@ -2,9 +2,14 @@ spring:
   profiles:
     active:
       - dev
+  freemarker:
+    suffix: .ftl
+    expose-request-attributes: true
+    expose-session-attributes: true
+    expose-spring-macro-helpers: true
+    content-type: text/html;charset=UTF-8
 mybatis:
   mapper-locations: classpath*:com/opensource/soft/BlogServer/user/**/mapper/*Mapper.xml
   type-aliases-package: com.chinaopensource.soft.BlogServer.user
-  
 pagehelper:
   helper-dialect: mysql
