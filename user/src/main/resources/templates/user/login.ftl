@@ -62,7 +62,7 @@
 <script type="text/javascript">
 
 	function reloadValidateCode(){
-		$("#validateCodeImg").attr("src","validateCode?data=" + new Date() + Math.floor(Math.random()*24));
+		$("#validateCodeImg").attr("src","validateCode?data="+Math.random());
 	}
 
 </script>
