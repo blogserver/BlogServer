@@ -54,6 +54,7 @@
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
     <!-- blog系统JS -->
+    <script src="${staticUrl}/static/js/common.js"></script>
     <script src="${staticUrl}/static/js/detail.js"></script>
     
 </body>
