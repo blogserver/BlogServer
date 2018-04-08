@@ -2,7 +2,6 @@ package com.opensource.soft.BlogServer.user.user.controller;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -120,18 +119,10 @@ public class LoginController {
     public void validateCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setHeader("Cache-Control", "no-cache");
         String verifyCode = ValidateCode.generateTextCode(ValidateCode.TYPE_NUM_ONLY, 4, null);
-        //TODO 本地可以，服务器上不行 ，https图片显示不出来 目前先写死  1234
-        verifyCode = "1234";
         logger.info("图片验证码：{}",verifyCode);
         request.getSession().setAttribute("validateCode", verifyCode);
         response.setContentType("image/jpeg");
         BufferedImage bim = ValidateCode.generateImageCode(verifyCode, 90, 30, 3, true, Color.WHITE, Color.BLACK, null);
-        
-        ByteArrayOutputStream tmp = new ByteArrayOutputStream();
-        ImageIO.write(bim, "JPEG", tmp);
-        tmp.close();
-        Integer contentLength = tmp.size();
-        response.setHeader("content-length", contentLength + "");
-        response.getOutputStream().write(tmp.toByteArray());// 将内存中的图片通过流动形式输出到客户端
+        ImageIO.write(bim, "JPEG", response.getOutputStream());
     }
 }

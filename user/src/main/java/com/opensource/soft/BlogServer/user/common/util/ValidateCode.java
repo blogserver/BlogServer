@@ -211,7 +211,7 @@ public class ValidateCode {
         int fx = height - fsize;
         int fy = fsize;
 
-        g.setFont(new Font("Default", Font.PLAIN, fsize));
+        g.setFont(new Font("cmr10", Font.PLAIN, fsize));
 
         // 写验证码字符
         for (int i = 0; i < textCode.length(); i++) {
