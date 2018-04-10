@@ -39,6 +39,19 @@
         		<h3>${blog.title}</h3>
         		<h5>创建时间:${blog.createtimestr}</h5>
 	        	${blog.content}
+	        	
+	        	<div id="optionBtn">
+					<button onclick="likeBtn()" type="button" class="btn btn-default ">
+					  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 喜欢
+					</button>
+					<button onclick="hateBtn()"type="button" class="btn btn-default ">
+					  <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> 讨厌
+					</button>
+					<button onclick="collectBtn()" type="button" class="btn btn-default ">
+					  <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> 收藏
+					</button>				
+				</div>
+	        	
         	</div>
         	<!--右侧导航-->
         	<div class="col-md-2 col-xs-3" id="right">右侧</div>

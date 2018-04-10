@@ -59,7 +59,7 @@ function visit(){
             },
             success : function(result) {
                     if(result.code == 0){
-                        console.log(result.message);
+                    
                     }else{
                         console.log(result.message);
                     }
@@ -89,6 +89,72 @@ function blogInfo(){
 		error : function(res) {
 			alert("加载内容失败");
 			alert(res);
+		}
+	});
+}
+
+
+
+//-----------------  用户操作  ---------------
+/**
+*	点击喜欢
+*/
+function likeBtn(){
+	console.log("点击喜欢事件");
+	if(!checkLogin())return;
+	PostUserServer(0);
+}
+
+
+/**
+*	点击讨厌
+*/
+function hateBtn(){
+	console.log("点击讨厌事件");
+	if(!checkLogin())return;
+	PostUserServer(1);
+}
+
+/**
+*	点击收藏
+*/
+function collectBtn(){
+	console.log("点击收藏事件");
+	if(!checkLogin())return;
+
+}
+
+/**
+*   检测是否登录
+*/
+function checkLogin(){
+	var username=getCookie('username');
+	if(username==null||username==undefined||username==""){
+		console.log("用户没有登录，跳转登录页面");
+		window.open(BaseHttpsUrl);
+		return false;
+	}
+	return true;
+}
+
+function PostUserServer(status){
+	$.ajax({
+		url : BaseHttpsUrl+"/blog/likeBlog",
+		type : "post",
+		data :{
+			"bloguuid":blogUUID,
+			"status":status
+		},
+		xhrFields: {  
+                withCredentials: true  
+        },
+		success : function(result) {
+			if(result.code != 0){
+				console.log(result.message);
+			}
+		},
+		error : function(res) {
+				console.log("请求错误");
 		}
 	});
 }
