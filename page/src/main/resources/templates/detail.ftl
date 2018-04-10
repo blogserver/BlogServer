@@ -32,6 +32,7 @@
         	<!--左侧导航-->
         	<div class="col-md-2 col-xs-3" id="left">
         		<input type="hidden" id = "blogUserId" value="${blog.createuser}">
+        		<input type="hidden" id = "blogUUID" value="${blog.uuid}">
         	</div>
         	<!--博客详细内容-->
         	<div class="col-md-8 col-xs-6" id="center">

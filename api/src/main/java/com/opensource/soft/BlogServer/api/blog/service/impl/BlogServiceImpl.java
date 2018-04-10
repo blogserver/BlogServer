@@ -48,11 +48,19 @@ public class BlogServiceImpl implements BlogService{
 			count.setBloguuid(visit.getBlogid());
 			count.setUserid(visit.getUserid());
 			count.setVisit(1);
+			count.setHate(0);
+			count.setLike(0);
+			count.setCollect(0);
 			countMapper.insert(count);
 		}else {
 			countMapper.updateVisitByUuid(visit.getBlogid());
 		}
 		
+	}
+
+	@Override
+	public Count findBlogCount(String blogUuid) {
+		return countMapper.selectByUuid(blogUuid);
 	}
 
 }
