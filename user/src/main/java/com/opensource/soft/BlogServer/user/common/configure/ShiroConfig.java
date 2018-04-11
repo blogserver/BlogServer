@@ -14,6 +14,7 @@ import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.opensource.soft.BlogServer.user.common.shiro.HttpAjaxAuthcFilter;
 import com.opensource.soft.BlogServer.user.common.shiro.SimpleShiroFilter;
 import com.opensource.soft.BlogServer.user.common.shiro.credentials.RetryLimitHashedCredentialsMatcher;
 import com.opensource.soft.BlogServer.user.common.shiro.realm.UserRealm;
@@ -73,6 +74,7 @@ public class ShiroConfig {
 
         Map<String, Filter> filters = new HashMap<String, Filter>();
         filters.put("SimpleShiroFilter", simpleShiroFilter());
+        filters.put("HttpAjaxAuthcFilter", new HttpAjaxAuthcFilter());
 		shiroFilterFactoryBean.setFilters(filters);
         
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
@@ -83,7 +85,8 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/user/register", "anon");
         filterChainDefinitionMap.put("/user/addUser", "anon");
         filterChainDefinitionMap.put("/user/validateCode", "anon");
-     //   filterChainDefinitionMap.put("/**", "anon");  
+     //   filterChainDefinitionMap.put("/**", "anon");
+        filterChainDefinitionMap.put("/blog/likeBlog", "HttpAjaxAuthcFilter");
         filterChainDefinitionMap.put("/**", "authc");  
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);  
         return shiroFilterFactoryBean;  

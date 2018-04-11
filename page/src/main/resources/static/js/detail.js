@@ -145,16 +145,21 @@ function PostUserServer(status){
 			"bloguuid":blogUUID,
 			"status":status
 		},
+		headers:{
+			"X-Requested-With":"X-Requested-With"
+		},
 		xhrFields: {  
                 withCredentials: true  
         },
 		success : function(result) {
 			if(result.code != 0){
 				console.log(result.message);
+				window.open(BaseHttpsUrl);
 			}
 		},
-		error : function(res) {
-				console.log("请求错误");
+		error : function(xhr) {
+			 console.log(xhr.status);
+			
 		}
 	});
 }

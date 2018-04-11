@@ -8,7 +8,8 @@ public enum ErrorMessage {
     SUCCESS(0,"成功"),
     ERR_SYSTERM(1,"系统错误"),
     ERR_PARAM_ERROR(2,"参数错误"),
-    ERR_PARAM_NO_FIND(3,"参数%s没有发现");
+    ERR_PARAM_NO_FIND(3,"参数%s没有发现"),
+	ERR_SHIRO_NO_LOGIN(4,"用户没有登录");
 
     private int code;
     private String message;
