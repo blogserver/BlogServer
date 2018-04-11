@@ -151,14 +151,15 @@ function PostUserServer(status){
 		xhrFields: {  
                 withCredentials: true  
         },
-		success : function(result) {
+		success : function(res) {
+			var result = JSON.parse(res);
 			if(result.code != 0){
 				console.log(result.message);
 				window.open(BaseHttpsUrl);
 			}
 		},
-		error : function(xhr) {
-			 console.log(xhr.status);
+		error : function(res) {
+			 console.log(res.status);
 			
 		}
 	});
