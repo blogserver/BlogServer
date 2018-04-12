@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.opensource.soft.BlogServer.user.blog.dao.CollectMapper">
+	<resultMap id="BaseResultMap"
+		type="com.opensource.soft.BlogServer.user.blog.model.Collect">
+		<id column="userid" jdbcType="INTEGER" property="userid" />
+		<id column="bloguuid" jdbcType="CHAR" property="bloguuid" />
+		<result column="deleteflag" jdbcType="BIT" property="deleteflag" />
+		<result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		userid, bloguuid, deleteflag, createtime
+	</sql>
+
+	<insert id="insert"
+		parameterType="com.opensource.soft.BlogServer.user.blog.model.Collect">
+		insert into collect (userid, bloguuid, deleteflag, createtime)
+		values (#{userid,jdbcType=INTEGER}, #{bloguuid,jdbcType=CHAR},
+		#{deleteflag,jdbcType=BIT},
+		#{createtime,jdbcType=TIMESTAMP})
+	</insert>
+
+	<select id="selectByUserOrUUid"
+		parameterType="com.opensource.soft.BlogServer.user.blog.model.Collect"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from collect
+		where deleteflag = 0
+		<if test="userid != null">
+			and userid = #{userid,jdbcType=INTEGER},
+		</if>
+		<if test="bloguuid != null">
+			and bloguuid = #{bloguuid,jdbcType=CHAR},
+		</if>
+	</select>
+
+	<select id="selectByKey"
+		parameterType="com.opensource.soft.BlogServer.user.blog.model.Collect"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from collect
+		where deleteflag = 0
+		and userid = #{userid,jdbcType=INTEGER}
+		and bloguuid = #{bloguuid,jdbcType=CHAR}
+	</select>
+
+	<delete id="deleteByKey"
+		parameterType="com.opensource.soft.BlogServer.user.blog.model.Collect">
+		update collect
+		set
+		deleteflag = 1
+		where userid = #{userid,jdbcType=INTEGER}
+		and bloguuid = #{bloguuid,jdbcType=CHAR}
+	</delete>
+
+</mapper>

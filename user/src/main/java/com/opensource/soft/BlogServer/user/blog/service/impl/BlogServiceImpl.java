@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.opensource.soft.BlogServer.user.blog.dao.BlogMapper;
+import com.opensource.soft.BlogServer.user.blog.dao.CollectMapper;
 import com.opensource.soft.BlogServer.user.blog.dao.CountMapper;
 import com.opensource.soft.BlogServer.user.blog.dao.LikesMapper;
 import com.opensource.soft.BlogServer.user.blog.model.Blog;
+import com.opensource.soft.BlogServer.user.blog.model.Collect;
 import com.opensource.soft.BlogServer.user.blog.model.Likes;
 import com.opensource.soft.BlogServer.user.blog.service.BlogService;
 import com.opensource.soft.BlogServer.user.common.shiro.ShiroUser;
@@ -25,6 +27,9 @@ public class BlogServiceImpl implements BlogService {
     
     @Autowired
     private CountMapper countMapper;
+    
+    @Autowired
+    private CollectMapper collectMapper;
     
     @Override
     public int save(Blog blog) {
@@ -68,5 +73,17 @@ public class BlogServiceImpl implements BlogService {
 			
 		}
 		
+	}
+
+	@Override
+	public void collectBlog(Collect collect) {
+		collect.setUserid(ShiroUser.getUserId());
+		collect.setCreatetime(new Date());
+		collect.setDeleteflag(Boolean.FALSE);
+		Collect collectOld = collectMapper.selectByKey(collect);
+		if(collectOld == null){
+			collectMapper.insert(collect);
+			countMapper.updateCollectAddByUuid(collect.getBloguuid());
+		}
 	}
 }

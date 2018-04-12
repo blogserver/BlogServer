@@ -77,4 +77,12 @@
     	hate = hate - 1
     where bloguuid = #{bloguuid,jdbcType=CHAR}
   </update>
+  
+  <update id="updateCollectAddByUuid" parameterType="java.lang.String">
+    update `count`
+    set
+    	`collect` = `collect` + 1
+    where bloguuid = #{bloguuid,jdbcType=CHAR}
+  </update>
+  
 </mapper>

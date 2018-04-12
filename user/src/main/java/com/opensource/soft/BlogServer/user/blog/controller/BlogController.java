@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.opensource.soft.BlogServer.common.BaseResponse;
 import com.opensource.soft.BlogServer.common.util.PathUtil;
 import com.opensource.soft.BlogServer.user.blog.model.Blog;
+import com.opensource.soft.BlogServer.user.blog.model.Collect;
 import com.opensource.soft.BlogServer.user.blog.model.Likes;
 import com.opensource.soft.BlogServer.user.blog.service.BlogService;
 import com.opensource.soft.BlogServer.user.common.property.UserProperties;
@@ -84,6 +85,13 @@ public class BlogController {
     @RequestMapping(value="/likeBlog", method = RequestMethod.POST)
     public String likeBlog(Likes likes){
         blogService.likeBlog(likes);
+        return BaseResponse.successJson();
+    }
+
+    @ResponseBody
+    @RequestMapping(value="/collectBlog", method = RequestMethod.POST)
+    public String collectBlog(Collect collect){
+        blogService.collectBlog(collect);
         return BaseResponse.successJson();
     }
 

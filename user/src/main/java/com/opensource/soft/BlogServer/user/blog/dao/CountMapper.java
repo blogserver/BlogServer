@@ -19,4 +19,6 @@ public interface CountMapper {
 	int updateLikeMinusByUuid(String bloguuid);
 	int updateHateAddByUuid(String bloguuid);
 	int updateHateMinusByUuid(String bloguuid);
+	
+	int updateCollectAddByUuid(String bloguuid);
 }

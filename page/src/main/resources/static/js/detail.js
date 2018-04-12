@@ -102,7 +102,7 @@ function blogInfo(){
 function likeBtn(){
 	console.log("点击喜欢事件");
 	if(!checkLogin())return;
-	PostUserServer(0);
+	likeUserServer(0);
 }
 
 
@@ -112,7 +112,7 @@ function likeBtn(){
 function hateBtn(){
 	console.log("点击讨厌事件");
 	if(!checkLogin())return;
-	PostUserServer(1);
+	likeUserServer(1);
 }
 
 /**
@@ -121,7 +121,30 @@ function hateBtn(){
 function collectBtn(){
 	console.log("点击收藏事件");
 	if(!checkLogin())return;
-
+	$.ajax({
+		url : BaseHttpsUrl+"/blog/collectBlog",
+		type : "post",
+		data :{
+			"bloguuid":blogUUID
+		},
+		headers:{
+			"X-Requested-With":"X-Requested-With"
+		},
+		xhrFields: {  
+                withCredentials: true  
+        },
+		success : function(res) {
+			var result = JSON.parse(res);
+			if(result.code != 0){
+				console.log(result.message);
+				window.open(BaseHttpsUrl);
+			}
+		},
+		error : function(res) {
+			 console.log(res.status);
+			
+		}
+	});
 }
 
 /**
@@ -137,7 +160,7 @@ function checkLogin(){
 	return true;
 }
 
-function PostUserServer(status){
+function likeUserServer(status){
 	$.ajax({
 		url : BaseHttpsUrl+"/blog/likeBlog",
 		type : "post",
