@@ -15,6 +15,7 @@
 		<#include "../part/head.ftl"/>
     </div>
     <div class="row">
+    	<div class="col-sm-12">
         <form class="form-horizontal"  action="/user/login" method="post">
 	        <#if errMsg??>
 	        	<div class="alert alert-danger alert-dismissible fade in" role="alert" id="myAlert">
@@ -26,13 +27,13 @@
 	        </#if>
             <div class="form-group">
                 <label for="loginname" class="col-sm-3 control-label">登录名</label>
-                <div class="col-sm-7">
+                <div class="col-sm-6">
                     <input type="text" class="form-control" id="loginname" name="loginname" placeholder="登陆名">
                 </div>
             </div>
             <div class="form-group">
                 <label for="password" class="col-sm-3 control-label">密&nbsp;&nbsp;码</label>
-                <div class="col-sm-7">
+                <div class="col-sm-6">
                     <input type="password" class="form-control" id="password" name="password" placeholder="密码">
                 </div>
             </div>
@@ -46,11 +47,12 @@
             </div>
 
             <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-7">
+                <div class="col-sm-offset-3 col-sm-6">
                     <button type="submit"  class="btn btn-primary  btn-lg btn-block">登陆</button>
                 </div>
             </div>
 		</form>
+		</div>
 	</div>
     <div class="row">
 		<#include "../part/footer.ftl"/>

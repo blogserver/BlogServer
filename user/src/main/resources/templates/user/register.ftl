@@ -14,35 +14,35 @@
 		<#include "../part/head.ftl"/>
     </div>
     <div class="row">
-
+		<div class="col-sm-12">
         <form class="form-horizontal" id="userRegister">
             <div class="form-group">
                 <label for="loginname" class="col-sm-3 control-label">登录名</label>
-                <div class="col-sm-7">
+                <div class="col-sm-6">
                     <input type="text" class="form-control" id="loginname" name="loginname" placeholder="登陆名">
                 </div>
             </div>
             <div class="form-group">
                 <label for="password" class="col-sm-3 control-label">密&nbsp;&nbsp;码</label>
-                <div class="col-sm-7">
+                <div class="col-sm-6">
                     <input type="password" class="form-control" id="password" name="password" placeholder="密码">
                 </div>
             </div>
             <div class="form-group">
                 <label for="nickname" class="col-sm-3 control-label">昵&nbsp;&nbsp;称</label>
-                <div class="col-sm-7">
+                <div class="col-sm-6">
                     <input type="text" class="form-control" id="nickname" name="nickname" placeholder="昵称">
                 </div>
             </div>
             <div class="form-group">
                 <label for="phone" class="col-sm-3 control-label">电&nbsp;&nbsp;话</label>
-                <div class="col-sm-7">
+                <div class="col-sm-6">
                     <input type="text" class="form-control" id="phone" name="phone"  placeholder="电话">
                 </div>
             </div>
             <div class="form-group">
                 <label for="email" class="col-sm-3 control-label">Email</label>
-                <div class="col-sm-7">
+                <div class="col-sm-6">
                     <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                 </div>
             </div>
@@ -57,13 +57,12 @@
             </div>
 
             <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-7">
+                <div class="col-sm-offset-3 col-sm-6">
                     <button type="button"  onclick="register()"  class="btn btn-primary  btn-lg btn-block">注册</button>
                 </div>
             </div>
         </form>
-
-
+		</div>
     </div>
     <div class="row">
 		<#include "../part/footer.ftl"/>
