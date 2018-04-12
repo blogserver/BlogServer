@@ -51,7 +51,25 @@
 					  <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> 收藏
 					</button>				
 				</div>
-	        	
+	        	<form class="form-horizontal">
+				  <div class="form-group">
+					  <div class="col-md-12 col-xs-12">
+						<textarea id="commentContent" class="form-control" rows="5"></textarea>
+					  </div>
+				  </div>
+				  <div class="form-group">
+						<div class="col-md-9 col-xs-8">
+						</div>
+						<div class="col-md-3 col-xs-4">
+						  <button onclick="commentCancelBtn()" type="button" class="btn btn-default">
+							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>取消
+						  </button>
+						  <button onclick="commentSaveBtn()" type="button" class="btn btn-primary">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>保存
+						  </button>
+						</div>
+				  </div>
+				</form>
         	</div>
         	<!--右侧导航-->
         	<div class="col-md-2 col-xs-3" id="right">右侧</div>

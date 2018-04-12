@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.opensource.soft.BlogServer.user.comment.dao.CommentMapper">
+  <resultMap id="BaseResultMap" type="com.opensource.soft.BlogServer.user.comment.model.Comment">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="bloguuid" jdbcType="CHAR" property="bloguuid" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="likes" jdbcType="INTEGER" property="likes" />
+    <result column="hates" jdbcType="INTEGER" property="hates" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="createuser" jdbcType="INTEGER" property="createuser" />
+    <result column="deleteflag" jdbcType="BIT" property="deleteflag" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    id, bloguuid, content, pid, likes, hates, createtime, createuser, deleteflag
+  </sql>
+  
+  <insert id="insert" parameterType="com.opensource.soft.BlogServer.user.comment.model.Comment">
+    insert into comment (id, bloguuid, content, 
+      pid, likes, hates, 
+      createtime, createuser, deleteflag
+      )
+    values (#{id,jdbcType=INTEGER}, #{bloguuid,jdbcType=CHAR}, #{content,jdbcType=VARCHAR}, 
+      #{pid,jdbcType=INTEGER}, #{likes,jdbcType=INTEGER}, #{hates,jdbcType=INTEGER}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{createuser,jdbcType=INTEGER}, #{deleteflag,jdbcType=BIT}
+      )
+  </insert>
+  
+  <select id="selectByKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from comment
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByBlogUuid" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from comment
+    where bloguuid = #{bloguuid,jdbcType=CHAR}
+  </select>
+  
+  <update id="updateByKey" parameterType="com.opensource.soft.BlogServer.user.comment.model.Comment">
+    update comment
+    <set>
+      <if test="bloguuid != null">
+        bloguuid = #{bloguuid,jdbcType=CHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="likes != null">
+        likes = #{likes,jdbcType=INTEGER},
+      </if>
+      <if test="hates != null">
+        hates = #{hates,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null">
+        createuser = #{createuser,jdbcType=INTEGER},
+      </if>
+      <if test="deleteflag != null">
+        deleteflag = #{deleteflag,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+ 
+</mapper>

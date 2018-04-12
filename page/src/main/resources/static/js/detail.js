@@ -230,3 +230,39 @@ function followBtn(){
 		}
 	});
 }
+
+/**
+*	保存评论
+*/
+function commentSaveBtn(){
+	console.log("点击保存评论事件");
+	if(!checkLogin())return;
+	$.ajax({
+		url : BaseHttpsUrl+"/comment/saveComment",
+		type : "post",
+		data :{
+			"bloguuid":blogUUID,
+			"content":$("#commentContent").val(),
+		},
+		headers:{
+			"X-Requested-With":"X-Requested-With"
+		},
+		xhrFields: {  
+                withCredentials: true  
+        },
+		success : function(res) {
+			var result = JSON.parse(res);
+			if(result.code != 0){
+				console.log(result.message);
+				window.open(BaseHttpsUrl);
+			}else{
+				//刷新信息
+				//userInfo();
+			}
+		},
+		error : function(res) {
+			 console.log(res.status);
+			
+		}
+	});
+}
