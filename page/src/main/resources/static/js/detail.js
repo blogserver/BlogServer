@@ -20,6 +20,7 @@ $(function() {
  * @returns
  */
 function userInfo(){
+	//$("#left").html("");
 	console.log("博主信息");
 	$.ajax({
 		url : ApiServerUrl+"/user/info?userId="+blogUserId,
@@ -138,6 +139,9 @@ function collectBtn(){
 			if(result.code != 0){
 				console.log(result.message);
 				window.open(BaseHttpsUrl);
+			}else{
+				//刷新信息
+				userInfo();
 			}
 		},
 		error : function(res) {
@@ -179,6 +183,9 @@ function likeUserServer(status){
 			if(result.code != 0){
 				console.log(result.message);
 				window.open(BaseHttpsUrl);
+			}else{
+				//刷新信息
+				userInfo();
 			}
 		},
 		error : function(res) {
