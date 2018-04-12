@@ -87,6 +87,9 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/user/validateCode", "anon");
      //   filterChainDefinitionMap.put("/**", "anon");
         filterChainDefinitionMap.put("/blog/likeBlog", "HttpAjaxAuthcFilter");
+        filterChainDefinitionMap.put("/blog/collectBlog", "HttpAjaxAuthcFilter");
+        filterChainDefinitionMap.put("/user/followUser", "HttpAjaxAuthcFilter");
+        
         filterChainDefinitionMap.put("/**", "authc");  
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);  
         return shiroFilterFactoryBean;  

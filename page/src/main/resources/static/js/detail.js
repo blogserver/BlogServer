@@ -29,7 +29,7 @@ function userInfo(){
 			var result = JSON.parse(res);
 			if(result.code == 0){
 				var data = result.data;
-				$("#left").html(data.loginname);
+				$("#left").html('<div>'+data.loginname+'</div><button class="btn btn-sm btn-default" onclick="followBtn()" type="submit">关注</button>');
 				blogInfo();
 			}else{
 				alert("返回内容错误");
@@ -186,6 +186,42 @@ function likeUserServer(status){
 			}else{
 				//刷新信息
 				userInfo();
+			}
+		},
+		error : function(res) {
+			 console.log(res.status);
+			
+		}
+	});
+}
+
+
+/**
+*	关注
+*/
+function followBtn(){
+	console.log("点击关注事件");
+	if(!checkLogin())return;
+	$.ajax({
+		url : BaseHttpsUrl+"/user/followUser",
+		type : "post",
+		data :{
+			"followuserid":blogUserId
+		},
+		headers:{
+			"X-Requested-With":"X-Requested-With"
+		},
+		xhrFields: {  
+                withCredentials: true  
+        },
+		success : function(res) {
+			var result = JSON.parse(res);
+			if(result.code != 0){
+				console.log(result.message);
+				window.open(BaseHttpsUrl);
+			}else{
+				//刷新信息
+				//userInfo();
 			}
 		},
 		error : function(res) {

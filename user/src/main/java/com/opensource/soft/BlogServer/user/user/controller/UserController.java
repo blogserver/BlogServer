@@ -1,5 +1,7 @@
 package com.opensource.soft.BlogServer.user.user.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.opensource.soft.BlogServer.common.BaseResponse;
 import com.opensource.soft.BlogServer.common.ErrorMessage;
+import com.opensource.soft.BlogServer.user.user.model.Follow;
 import com.opensource.soft.BlogServer.user.user.model.User;
 import com.opensource.soft.BlogServer.user.user.service.UserService;
-
-import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping(value="/user")
@@ -72,6 +73,12 @@ public class UserController {
 		return BaseResponse.successJson();
 	}
 	
-	
+    @ResponseBody
+    @RequestMapping(value="/followUser", method = RequestMethod.POST)
+    public String followUser(Follow follow){
+    	logger.info(follow.toString());
+    	userService.followUser(follow);
+        return BaseResponse.successJson();
+    }
 	
 }

@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.opensource.soft.BlogServer.user.common.shiro.PasswordHelper;
+import com.opensource.soft.BlogServer.user.common.shiro.ShiroUser;
+import com.opensource.soft.BlogServer.user.user.dao.FollowMapper;
 import com.opensource.soft.BlogServer.user.user.dao.UserMapper;
+import com.opensource.soft.BlogServer.user.user.model.Follow;
 import com.opensource.soft.BlogServer.user.user.model.User;
 import com.opensource.soft.BlogServer.user.user.service.UserService;
 
@@ -18,6 +21,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private PasswordHelper passwordHelper;
+	
+	@Autowired
+	private FollowMapper followMapper;
 	
 	@Override
 	public User selectByUserId(Integer userId) {
@@ -44,6 +50,20 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User selectByLoginname(String loginname) {
 		return this.userMapper.selectByLoginname(loginname);
+	}
+
+	@Override
+	public void followUser(Follow follow) {
+		follow.setUserid(ShiroUser.getUserId());
+		//自己关注自己
+		if(follow.getFollowuserid() == follow.getUserid()){
+			return;
+		}
+		follow.setCreatetime(new Date());
+		Follow followOld = this.followMapper.selectByKey(follow);
+		if(followOld == null){
+			this.followMapper.insert(follow);
+		}
 	}
 	
 	
