@@ -114,7 +114,7 @@ function commentInfo(){
 							
 				var html = "";
 				$.each(result.data,function(index,item){
-					html +='<div>'+item.content+'</div>';
+					html +='<div>'+item.content+'-------------------------'+formatDateTime(item.createtime)+'</div>';
 				})
 				$("#commentList").html(html);
 				
@@ -291,7 +291,8 @@ function commentSaveBtn(){
 				window.open(BaseHttpsUrl);
 			}else{
 				//刷新信息
-				//userInfo();
+				commentInfo();
+				commentCancelBtn();
 			}
 		},
 		error : function(res) {
