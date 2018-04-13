@@ -51,6 +51,7 @@
 					  <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> 收藏
 					</button>				
 				</div>
+				<h4>评论</h4>
 	        	<form class="form-horizontal">
 				  <div class="form-group">
 					  <div class="col-md-12 col-xs-12">
@@ -70,6 +71,9 @@
 						</div>
 				  </div>
 				</form>
+				<h4>评论列表</h4>
+				<div id="commentList">
+				</div>
         	</div>
         	<!--右侧导航-->
         	<div class="col-md-2 col-xs-3" id="right">右侧</div>

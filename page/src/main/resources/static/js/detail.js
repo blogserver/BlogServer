@@ -12,6 +12,8 @@ $(function() {
 	userInfo();
 	
 	visit();
+	
+	commentInfo();
 });
 
 /**
@@ -94,6 +96,38 @@ function blogInfo(){
 	});
 }
 
+/**
+ * 获取页面评论信息
+ * 
+ * @returns
+ */
+function commentInfo(){
+	
+	console.log("获取评论信息信息");
+	$.ajax({
+		url : ApiServerUrl+"/comment/"+blogUUID,
+		type : "get",
+		success : function(res) {
+			var result = JSON.parse(res);
+			if(result.code == 0){
+				var data = result.data;
+							
+				var html = "";
+				$.each(result.data,function(index,item){
+					html +='<div>'+item.content+'</div>';
+				})
+				$("#commentList").html(html);
+				
+			}else{
+				alert("返回内容错误");
+			}
+		},
+		error : function(res) {
+			alert("加载内容失败");
+			alert(res);
+		}
+	});
+}
 
 
 //-----------------  用户操作  ---------------
@@ -242,7 +276,7 @@ function commentSaveBtn(){
 		type : "post",
 		data :{
 			"bloguuid":blogUUID,
-			"content":$("#commentContent").val(),
+			"content":$("#commentContent").val()
 		},
 		headers:{
 			"X-Requested-With":"X-Requested-With"
@@ -265,4 +299,11 @@ function commentSaveBtn(){
 			
 		}
 	});
+}
+
+/**
+*	清楚评论
+*/
+function commentCancelBtn(){
+	$("#commentContent").val("");
 }
