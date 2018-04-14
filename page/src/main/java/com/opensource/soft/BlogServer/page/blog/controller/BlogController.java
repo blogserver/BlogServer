@@ -27,13 +27,24 @@ public class BlogController {
 	
     @ResponseBody
     @RequestMapping(value="/index", method = RequestMethod.GET)
-    public String findMyBlog(){
+    public String createIndex(){
         //生成页面
         Map<String, Object> dataSource = new HashMap<String, Object>();
         dataSource.put("blog", "");
     	FreemakerHelper.createHtml("index", dataSource, "index.html");
         return BaseResponse.successJson();
     }
+	
+    @ResponseBody
+    @RequestMapping(value="/search", method = RequestMethod.GET)
+    public String createSearch(){
+        //生成页面
+        Map<String, Object> dataSource = new HashMap<String, Object>();
+        dataSource.put("blog", "");
+    	FreemakerHelper.createHtml("search", dataSource, "search.html");
+        return BaseResponse.successJson();
+    }
+	
 	
 	@ResponseBody
 	@RequestMapping(value = "/createPage", method = RequestMethod.GET)
