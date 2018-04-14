@@ -35,6 +35,11 @@ public class BlogServiceImpl implements BlogService {
 			b.setUpdatetime(new Date());
 			blogMapper.updateBlogStatusByUuid(b);
 	        String location ="blog" +File.separator+ PathUtil.htmlPath()+ File.separator+blog.getUuid()+".html";
+	        ////////////TODO 开发的配置正式环境 去了
+	        if(blog.getLocation()!=null && blog.getLocation().trim().length()!=0) {
+	        	location = blog.getLocation();
+	        }
+	        ////////////
 	        //生成页面
 	        Map<String, Object> dataSource = new HashMap<String, Object>();
 			SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

@@ -51,9 +51,9 @@ function pageHeader(){
             +'</ul>'
             +'<form class="navbar-form navbar-left">'
             +'<div class="form-group">'
-            +'<input type="text" class="form-control" placeholder="Search">'
+            +'<input type="text" class="form-control" id="searchContent" placeholder="Search">'
             +'</div>'
-            +'<button type="submit" class="btn btn-default">Submit</button>'
+            +'<button type="button" onclick="searchBtn()" class="btn btn-default">Submit</button>'
             +'</form>'
             +'<ul class="nav navbar-nav navbar-right">';
 		
@@ -85,6 +85,16 @@ function pageHeader(){
 	
 	$("#header").html(html+parthtml+endhtml);
 }
+
+/**
+ * 查询按钮
+ * @returns
+ */
+function searchBtn(){
+	var q=$("#searchContent").val();
+	window.open(BaseHttpUrl+"/search.html?q="+q);
+}
+
 /**
  * 设置页面尾部
  * @returns
@@ -150,4 +160,15 @@ function formatDateTime(inputTime) {
   minute = minute < 10 ? ('0' + minute) : minute;
   second = second < 10 ? ('0' + second) : second;
   return y + '-' + m + '-' + d+' '+h+':'+minute+':'+second;
+}
+
+/**
+ * 获取url参数
+ * @param name
+ * @returns
+ */
+function getQueryString(name) {
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");   
+  var r = window.location.search.substr(1).match(reg);   
+  if (r != null) return decodeURI(r[2]); return null;  
 }

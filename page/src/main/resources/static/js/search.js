@@ -12,17 +12,37 @@
 * 初始化加载
 */
 $(function() {
+	var key = encodeURI(getQueryString("q"));
+	search(key,0,10);
+});
+
+function search(q,start,rows){
+	if(q==null||q==undefined||q==""){
+		q="*:*";
+	}
+	if(start==null||start==undefined||start==""){
+		start=0;
+	}
+	if(rows==null||rows==undefined||rows==""){
+		rows=10;
+	}
+
 	$.ajax({
-		url : BaseHttpUrl+"/solr/db/select?q=%E5%AE%89%E8%A3%85",
+		url : BaseHttpUrl+"/solr/db/select?q="+q+"&start="+start+"&rows="+rows,
 		type : "get",
 		success : function(res) {
-			alert(res.responseHeader.status);
-			alert("返回内容错误");
+			searchResult(res.response.docs);
 		},
 		error : function(res) {
 			alert("加载内容失败");
-			
 		}
 	});
-	
-});
+}
+
+function searchResult(data){
+	var html = "";
+	$.each(data,function(index,ele){
+		html += "<p><a href=\"" +BaseHttpUrl+ "/"+ele.location+"\" target=\"_blank\">"+ele.title+"</a>----------------"+ele.updatetime+"</p>";
+	});
+	$("#searchResult").html(html);
+}

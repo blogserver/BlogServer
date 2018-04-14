@@ -26,7 +26,12 @@
         	this is header
         </div>
         <div class="row">
-            
+            <div class="col-md-9">
+            	<div id="searchKey"></div>
+            	<div id="searchResult"></div>
+            </div>
+            <div class="col-md-3">
+            </div>
         </div>
         <!--页面脚-->
         <div class="row" id="footer">
