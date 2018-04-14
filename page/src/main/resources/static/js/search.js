@@ -12,9 +12,15 @@
 * 初始化加载
 */
 $(function() {
-	var key = encodeURI(getQueryString("q"));
-	search(key,0,10);
+	var key = getQueryString("q")
+	$("#inputSearch").val(key);
+	search(encodeURI(key),0,10);
 });
+
+function inputSearchBtn(){
+	var key = $("#inputSearch").val();
+	search(encodeURI(key),0,10);
+}
 
 function search(q,start,rows){
 	if(q==null||q==undefined||q==""){

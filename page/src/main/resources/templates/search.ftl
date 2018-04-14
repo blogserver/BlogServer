@@ -27,7 +27,20 @@
         </div>
         <div class="row">
             <div class="col-md-9">
-            	<div id="searchKey"></div>
+            	<div id="searchKey">
+            		<form class="form-horizontal">
+					  <div class="form-group">
+						<label for="inputSearch" class="col-sm-1 control-label">Band</label>
+						<div class="col-sm-9">
+						  <input type="email" class="form-control" id="inputSearch" placeholder="Email">
+						</div>
+						<div class="col-sm-2">
+							<button type="button" onclick="inputSearchBtn()" class="btn btn-default">搜索</button>
+						</div>
+						
+					  </div>
+					</form>
+            	</div>
             	<div id="searchResult"></div>
             </div>
             <div class="col-md-3">
