@@ -19,11 +19,19 @@ public class GroupServiceImpl implements GroupService {
 	
 	@Override
 	public int save(Group group) {
-		group.setCreatetime(new Date());
-		group.setUpdatetime(new Date());
-		group.setDeleteflag(false);
-		group.setCreateuser(ShiroUser.getUserId());
-		return groupMapper.insert(group);
+		if(group.getId()==null) {
+			group.setStatus(0);
+			group.setCreatetime(new Date());
+			group.setUpdatetime(new Date());
+			group.setDeleteflag(false);
+			group.setCreateuser(ShiroUser.getUserId());
+			return groupMapper.insert(group);
+		}else {
+			group.setStatus(0);
+			group.setUpdatetime(new Date());
+			group.setDeleteflag(false);
+			return groupMapper.updateById(group);
+		}
 	}
 
 	@Override
