@@ -13,7 +13,9 @@
     <script src="/resources/bower_components/simple-hotkeys/lib/hotkeys.js"></script>
     <script src="/resources/bower_components/simple-uploader/lib/uploader.js"></script>
     <script src="/resources/bower_components/simditor/lib/simditor.js"></script>
-
+    
+    <link href="https://cdn.bootcss.com/zTree.v3/3.5.33/css/zTreeStyle/zTreeStyle.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/zTree.v3/3.5.33/js/jquery.ztree.all.min.js"></script>
 </head>
 <body>
 
@@ -29,6 +31,15 @@
                 <div class="form-group">
                     <input type="email" class="form-control" id="blog_title" placeholder="标题">
                 </div>
+                
+                <div class="form-group">
+                	<input type="hidden" id="groupIds" />
+                    <input type="text" id="groupSel"  readonly class="form-control" placeholder="标题" onclick="showMenu();">
+                    <div id="menuContent" class="menuContent" style="display:none; position: absolute;">
+						<ul id="treeDemo" class="ztree"></ul>
+					</div>
+                </div>
+
 
                 <div class="form-group">
                     <textarea id="editor" placeholder="请输入博客内容……" autofocus ></textarea>
@@ -74,6 +85,7 @@
                 data: {
                     "uuid":uuid(),
                     "title":$("#blog_title").val(),
+                    "groupIds":$("#groupIds").val(),
                     "status":status,
                     "content":editor.getValue()
                 },
@@ -99,6 +111,88 @@
             var uuid = s.join("");
             return uuid;
         }
+        
+///---------------------------------------------------------        
+        var setting = {
+			check: {
+				enable: true,
+				chkboxType: {"Y":"", "N":""}
+			},
+			view: {
+				dblClickExpand: false
+			},
+			data: {
+				simpleData: {
+					enable: true,
+					pIdKey: "pid"
+				}
+			},
+			callback: {
+				beforeClick: beforeClick,
+				onCheck: onCheck
+			}
+		};
+
+		function beforeClick(treeId, treeNode) {
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+			zTree.checkNode(treeNode, !treeNode.checked, null, true);
+			return false;
+		}
+		
+		function onCheck(e, treeId, treeNode) {
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+			nodes = zTree.getCheckedNodes(true),
+			v = "";
+			ids ="";
+			for (var i=0, l=nodes.length; i<l; i++) {
+				v += nodes[i].name + ",";
+				ids += nodes[i].id + ",";
+			}
+			if (v.length > 0 ) {
+				v = v.substring(0, v.length-1);
+				ids = ids.substring(0, ids.length-1);
+				$("#groupIds").val(ids);
+			}
+			var cityObj = $("#groupSel");
+			cityObj.attr("value", v);
+		}
+
+		function showMenu() {
+			var cityObj = $("#groupSel");
+			var cityOffset = $("#groupSel").offset();
+			$("#menuContent").css({"width": "100%", "z-index":99, "background-color": "#8bc1e6"}).slideDown("fast");
+
+			$("body").bind("mousedown", onBodyDown);
+		}
+		function hideMenu() {
+			$("#menuContent").fadeOut("fast");
+			$("body").unbind("mousedown", onBodyDown);
+		}
+		function onBodyDown(event) {
+			if (!(event.target.id == "menuBtn" || event.target.id == "groupSel" || event.target.id == "menuContent" || $(event.target).parents("#menuContent").length>0)) {
+				hideMenu();
+			}
+		}
+
+		$(document).ready(function(){
+			$.ajax({
+	            type: "GET",
+	            url: "/group/findAllGroup",
+	            success: function(data){
+	                //查找分组信息
+	                var result = JSON.parse(data);
+	                if(result.code == 0){
+	                    $.fn.zTree.init($("#treeDemo"), setting, result.data);
+	                }else {
+	                    result.message;
+	                }
+	            },
+	            error: function(data){
+	                alert("获取失败");
+	            }
+	        });	
+		});
+        
 	</script>
 </body>
 </html>

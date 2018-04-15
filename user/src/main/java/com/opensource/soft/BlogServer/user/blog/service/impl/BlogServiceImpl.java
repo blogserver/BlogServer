@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.opensource.soft.BlogServer.user.blog.dao.BlogMapper;
 import com.opensource.soft.BlogServer.user.blog.dao.CollectMapper;
 import com.opensource.soft.BlogServer.user.blog.dao.CountMapper;
+import com.opensource.soft.BlogServer.user.blog.dao.GroupBlogMapper;
 import com.opensource.soft.BlogServer.user.blog.dao.LikesMapper;
 import com.opensource.soft.BlogServer.user.blog.model.Blog;
 import com.opensource.soft.BlogServer.user.blog.model.Collect;
@@ -31,13 +32,17 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     private CollectMapper collectMapper;
     
+    @Autowired
+    private GroupBlogMapper groupBlogMapper;
+    
     @Override
-    public int save(Blog blog) {
+    public int save(Blog blog, String groupIds) {
         blog.setDeleteflag(false);
         blog.setVersion(1);
         blog.setCreateuser(ShiroUser.getUserId());
         blog.setCreatetime(new Date());
         blog.setUpdatetime(new Date());
+        groupBlogMapper.insert(blog.getUuid(), groupIds.split(","));
         return blogMapper.save(blog);
     }
 

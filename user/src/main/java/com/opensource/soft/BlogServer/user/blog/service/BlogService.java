@@ -9,7 +9,7 @@ import com.opensource.soft.BlogServer.user.blog.model.Likes;
 
 public interface BlogService {
 	
-    int save(Blog blog);
+    int save(Blog blog, String groupIds);
 
     List<Blog> findMyBlog();
 

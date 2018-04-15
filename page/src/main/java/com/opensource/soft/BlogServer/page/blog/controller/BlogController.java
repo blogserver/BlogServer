@@ -54,6 +54,17 @@ public class BlogController {
     	FreemakerHelper.createHtml("group", dataSource, "group.html");
         return BaseResponse.successJson();
     }
+    
+    
+    @ResponseBody
+    @RequestMapping(value="/groupdetail", method = RequestMethod.GET)
+    public String createGroupDetail(){
+        //生成页面
+        Map<String, Object> dataSource = new HashMap<String, Object>();
+        dataSource.put("blog", "");
+    	FreemakerHelper.createHtml("groupdetail", dataSource, "groupdetail.html");
+        return BaseResponse.successJson();
+    }
 	
 	@ResponseBody
 	@RequestMapping(value = "/createPage", method = RequestMethod.GET)

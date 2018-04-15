@@ -40,9 +40,9 @@ public class BlogController {
 
     @ResponseBody
     @RequestMapping(value="/saveBlog", method = RequestMethod.POST)
-    public String saveBlog(Blog blog){
+    public String saveBlog(Blog blog,String groupIds){
         logger.info(blog.toString());
-        blogService.save(blog);
+        blogService.save(blog,groupIds);
         return BaseResponse.successJson();
     }
 

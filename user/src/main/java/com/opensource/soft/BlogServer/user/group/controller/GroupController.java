@@ -29,7 +29,7 @@ public class GroupController {
         return BaseResponse.successJson();
     }
 
-    
+    @ResponseBody
     @RequestMapping(value="/findAllGroup")
     public String findAllGroup(){
         return BaseResponse.successJson(groupService.findAllGroup());
