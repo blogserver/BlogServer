@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+	<title>分组页面</title>
+	
+	<!-- Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link href="https://cdn.bootcss.com/zTree.v3/3.5.33/css/zTreeStyle/zTreeStyle.min.css" rel="stylesheet">
+    <style type="text/css">
+		.ztree li span.button.add {margin-left:2px; margin-right: -1px; background-position:-144px 0; vertical-align:top; *vertical-align:middle}
+	</style>
+    
+    <!-- blog系统css -->
+    <link href="${staticUrl}/static/css/detail.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row" id="header" style="height:  70px;">
+        	this is header
+        </div>
+        <div class="row">
+            <div id="treeDemo" class="ztree"></div>
+        </div>
+        <!--页面脚-->
+        <div class="row" id="footer">
+        	this is footer
+        </div>
+    </div>
+    
+    <!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title" id="myModalLabel">添加</h4>
+		  </div>
+		  <div class="modal-body">
+			<form class="form-horizontal">
+			  <div class="form-group">
+				<label for="fgroupName" class="col-sm-2 control-label">父分类</label>
+				<div class="col-sm-10">
+				  <input type="hidden" id="fgroupid" >
+				  <input type="text" class="form-control" id="fgroupName" readonly="true" >
+				</div>
+			  </div>
+			  <div class="form-group">
+				<label for="groupName" class="col-sm-2 control-label">分&nbsp;&nbsp;&nbsp;&nbsp;类</label>
+				<div class="col-sm-10">
+				  <input type="hidden" id="groupid" >
+				  <input type="text" class="form-control" id="groupName" >
+				</div>
+			  </div>
+			  <div class="form-group">
+				<label for="description" class="col-sm-2 control-label">描&nbsp;&nbsp;&nbsp;&nbsp;述</label>
+				<div class="col-sm-10">
+				  <textarea class="form-control" id="description" rows="5"></textarea>
+				</div>
+			  </div>
+			</form>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			<button type="button" class="btn btn-primary">保存</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+    
+        
+	<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      
+    <script src="https://cdn.bootcss.com/zTree.v3/3.5.33/js/jquery.ztree.all.min.js"></script>
+    
+	<!-- blog系统JS -->
+	<script src="${staticUrl}/static/js/common.js"></script>
+    <script src="${staticUrl}/static/js/group.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.opensource.soft.BlogServer.api.group.mapper.GroupMapper">
+  <resultMap id="BaseResultMap" type="com.opensource.soft.BlogServer.api.group.data.Group">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="pId" jdbcType="INTEGER" property="pid" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="createuser" jdbcType="INTEGER" property="createuser" />
+    <result column="deleteflag" jdbcType="BIT" property="deleteflag" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    id, name, description, pId, status, createtime, updatetime, createuser, deleteflag
+  </sql>
+  
+  <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from `group`
+    where deleteflag = 0 and id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectAllGroup" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from `group`
+    where deleteflag = 0
+  </select>
+  
+</mapper>
