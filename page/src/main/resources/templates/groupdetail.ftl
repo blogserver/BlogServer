@@ -26,7 +26,31 @@
         	this is header
         </div>
         <div class="row">
-            
+            <div class="col-md-12">
+            	<div id="groupInfo">
+            </div>
+        </div>    
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">最新更新博客</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div id="newsblog"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                	<div class="panel-heading">
+                        <h3 class="panel-title">最受欢迎博客</h3>
+                    </div>
+                    <div class="panel-body">
+                    <div id="likeblog"></div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!--页面脚-->
         <div class="row" id="footer">

@@ -20,4 +20,9 @@ public class GroupServiceImpl implements GroupService {
 		return groupMapper.selectAllGroup();
 	}
 
+	@Override
+	public Group findGroupById(Integer groupId) {
+		return groupMapper.selectById(groupId);
+	}
+
 }

@@ -19,4 +19,10 @@
 		WHERE status = #{status,jdbcType=INTEGER} and  deleteflag = 0
 		ORDER BY createtime DESC
 	</select>
+	
+	<select id="findByGroupId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		SELECT * FROM groupblog gb LEFT JOIN blog b ON gb.`bloguuid` = b.`uuid`
+		WHERE gb.`groupid` =  #{groupId,jdbcType=INTEGER} AND b.`status` =3 
+		ORDER BY b.`updatetime` DESC
+	</select>
 </mapper>

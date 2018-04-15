@@ -23,5 +23,12 @@ public class GroupController {
     	logger.info("查询所有分类");
         return BaseResponse.successJson(groupService.findAllGroup());
     }
+    
+    @RequestMapping(value="/findGroupById")
+    public String findGroupById(Integer groupId){
+    	logger.info("查询{}分类",groupId);
+        return BaseResponse.successJson(groupService.findGroupById(groupId));
+    }
+    
 
 }

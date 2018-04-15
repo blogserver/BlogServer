@@ -50,4 +50,10 @@ public class BlogController {
 	public String findBlogCount(String blogUuid) {
 		return BaseResponse.successJson(blogService.findBlogCount(blogUuid));
 	}
+	
+	@RequestMapping(value = "/findByGroupId", method = RequestMethod.GET)
+	public String findByGroupId(Integer groupId) {
+		return BaseResponse.successJson(blogService.findByGroupId(groupId));
+	}
+	
 }

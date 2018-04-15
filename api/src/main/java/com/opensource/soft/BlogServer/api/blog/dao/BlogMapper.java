@@ -13,4 +13,6 @@ public interface BlogMapper {
 
 	List<Blog> findNewBlogs(Blog blog);
 
+	List<Blog> findByGroupId(Integer groupId);
+
 }

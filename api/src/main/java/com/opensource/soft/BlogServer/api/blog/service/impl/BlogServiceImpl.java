@@ -63,4 +63,9 @@ public class BlogServiceImpl implements BlogService{
 		return countMapper.selectByUuid(blogUuid);
 	}
 
+	@Override
+	public List<Blog> findByGroupId(Integer groupId) {
+		return this.blogMapper.findByGroupId(groupId) ;
+	}
+
 }

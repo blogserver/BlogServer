@@ -7,4 +7,6 @@ import com.opensource.soft.BlogServer.api.group.data.Group;
 public interface GroupService {
 	
 	List<Group> findAllGroup();
+
+	Group findGroupById(Integer groupId);
 }
