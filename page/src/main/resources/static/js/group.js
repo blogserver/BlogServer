@@ -42,6 +42,9 @@ function setZtree(){
 					enable: true,
 					pIdKey: "pid"
 				}
+			},
+			callback: {
+				onClick: zTreeOnClick
 			}
 		};
 	}else{
@@ -68,6 +71,7 @@ function setZtree(){
 				}
 			},
 			callback: {
+				onClick: zTreeOnClick,
 				beforeDrag: false,
 				beforeEditName: beforeEditName,
 				beforeRemove: beforeRemove
@@ -76,6 +80,9 @@ function setZtree(){
 	}
 }
 
+function zTreeOnClick(event, treeId, treeNode) {
+	window.open(BaseHttpUrl+"/groupdetail.html?groupid="+treeNode.id);
+};
 
 function beforeEditName(treeId, treeNode) {
 	var node = treeNode.getParentNode();
