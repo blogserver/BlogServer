@@ -27,30 +27,29 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-            	<div id="groupInfo">
+            	<div class="jumbotron" id="groupInfo">
+				</div>
             </div>
         </div>    
         <div class="row">
-            <div class="col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">最新更新博客</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div id="newsblog"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="panel panel-primary">
-                	<div class="panel-heading">
-                        <h3 class="panel-title">最受欢迎博客</h3>
-                    </div>
-                    <div class="panel-body">
-                    <div id="likeblog"></div>
-                    </div>
-                </div>
-            </div>
+			<div class="col-md-12">
+                <div>
+				  <!-- Nav tabs -->
+				  <ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active"><a href="#newsblog" aria-controls="home" role="tab" data-toggle="tab">最新博客</a></li>
+					<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+					<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+					<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+				  </ul>
+				  <!-- Tab panes -->
+				  <div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="newsblog">内容暂无</div>
+					<div role="tabpanel" class="tab-pane" id="profile">内容暂无</div>
+					<div role="tabpanel" class="tab-pane" id="messages">内容暂无</div>
+					<div role="tabpanel" class="tab-pane" id="settings">内容暂无</div>
+				  </div>
+				</div>
+            </div>          
         </div>
         <!--页面脚-->
         <div class="row" id="footer">
