@@ -7,6 +7,6 @@
 	<title>没有权限</title>
 </head>
 <body>
-	没有权限
+	<h1>没有权限</h1>
 </body>
 </html>
