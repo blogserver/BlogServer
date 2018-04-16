@@ -16,6 +16,8 @@ public class SimpleShiroFilter extends OncePerRequestFilter {
 			throws ServletException, IOException {
 		/**
 		 * 不能为 * 不能有两个值    否则报错
+		 *
+		 * 现在进行下兼容  根据系统不同进行判断
 		 * 
 		 * Failed to load https://www.chinaopensource.top/blog/likeBlog:
 		 * Redirect from 'https://www.chinaopensource.top/blog/likeBlog' to
@@ -28,8 +30,12 @@ public class SimpleShiroFilter extends OncePerRequestFilter {
 		 * attribute.
 		 */
 		// response.addHeader("Access-Control-Allow-Origin", "*");
-		response.addHeader("Access-Control-Allow-Origin", "http://www.chinaopensource.top");
-//		response.addHeader("Access-Control-Allow-Origin", "http://localhost");
+		String os = System.getProperty("os.name");  
+		if(os.toLowerCase().startsWith("win")){  
+			response.addHeader("Access-Control-Allow-Origin", "http://localhost");
+		}else{
+			response.addHeader("Access-Control-Allow-Origin", "http://www.chinaopensource.top");
+		}
 		response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE,OPTIONS");
 		response.addHeader("Access-Control-Allow-Headers", "Content-Type,X-Requested-With");
 		response.addHeader("Access-Control-Allow-Credentials", "true");

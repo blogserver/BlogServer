@@ -103,8 +103,12 @@ public class LoginController {
     * user logout
     */  
     @RequestMapping(value="/logout",method=RequestMethod.GET)  
-    public String logout(){  
+    public String logout(HttpServletResponse response){  
          SecurityUtils.getSubject().logout();  
+         Cookie cookie = new Cookie("username", null);
+         cookie.setMaxAge(0);
+         cookie.setPath("/");
+		 response.addCookie(cookie);
          return "redirect:/user/login";  
     }  
 
