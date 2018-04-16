@@ -22,7 +22,7 @@ function gropInfo(){
 			var result = JSON.parse(res);
 			if(result.code == 0){
 				var html ="";
-				html +='<h4>'+result.data.name+'</h4><p>'+result.data.description+'</p>';
+				html +='<h2>'+result.data.name+'</h2><p>'+result.data.description+'</p>';
 				$("#groupInfo").html(html);
 			}
 		},
