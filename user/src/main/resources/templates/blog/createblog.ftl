@@ -5,9 +5,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
 	<title>创建博客</title>
-    <#include "../part/comment.ftl"/>
-
+	<!-- Bootstrap -->
+    <link href="/resources/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	
     <link rel="stylesheet" type="text/css" href="/resources/bower_components/simditor/styles/simditor.css" />
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/resources/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/resources/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script src="/resources/bower_components/simple-module/lib/module.js"></script>
     <script src="/resources/bower_components/simple-hotkeys/lib/hotkeys.js"></script>
@@ -16,6 +21,8 @@
     
     <link href="https://cdn.bootcss.com/zTree.v3/3.5.33/css/zTreeStyle/zTreeStyle.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/zTree.v3/3.5.33/js/jquery.ztree.all.min.js"></script>
+    
+    <script src="/resources/js/common.js"></script>
 </head>
 <body>
 
