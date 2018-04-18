@@ -28,8 +28,7 @@
 
 
 <div class="container-fluid">
-    <div class="row">
-		<#include "../part/head.ftl"/>
+    <div class="row" id="header" style="height:  70px;">
     </div>
     <div class="row">
         <div class="col-md-10 col-md-offset-1" style="margin-bottom: 100px;">
@@ -61,9 +60,8 @@
 
         </div>
 	</div>
-	<div class="row">
-		<#include "../part/footer.ftl"/>
-	</div>
+    <div class="row" id="footer">
+    </div>
 </div>
 	<script type="text/javascript">
 
