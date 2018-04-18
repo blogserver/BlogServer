@@ -5,13 +5,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
 	<title>个人主页</title>
-	<#include "../part/comment.ftl"/>
+	<!-- Bootstrap -->
+    <link href="/resources/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	
 </head>
 <body>
 
 <div class="container-fluid">
-    <div class="row">
-		<#include "../part/head.ftl"/>
+    <div class="row" id="header" style="height:  70px;">
     </div>
     <div class="row">
 		<div class="col-lg-2">
@@ -62,10 +63,13 @@
         </div>
 
     </div>
-    <div class="row">
-		<#include "../part/footer.ftl"/>
+    <div class="row" id="footer">
     </div>
-
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/resources/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/resources/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="/resources/js/common.js"></script>
 </body>
 </html>
 <script type="text/javascript">
