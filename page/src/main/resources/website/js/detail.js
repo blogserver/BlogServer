@@ -2,7 +2,6 @@
 *	博客详细页面的JS
 *	v1.0
 */
-var ApiServerUrl = BaseHttpUrl+":9001";
 var blogUserId = $("#blogUserId").val();
 var blogUUID = $("#blogUUID").val();
 /**
@@ -172,7 +171,7 @@ function collectBtn(){
 			var result = JSON.parse(res);
 			if(result.code != 0){
 				console.log(result.message);
-				window.open(BaseHttpsUrl);
+				window.open(BaseHttpsUrl+"/user/");
 			}else{
 				//刷新信息
 				userInfo();
@@ -192,7 +191,7 @@ function checkLogin(){
 	var username=getCookie('username');
 	if(username==null||username==undefined||username==""){
 		console.log("用户没有登录，跳转登录页面");
-		window.open(BaseHttpsUrl);
+		window.open(BaseHttpsUrl+"/user/");
 		return false;
 	}
 	return true;
@@ -216,7 +215,7 @@ function likeUserServer(status){
 			var result = JSON.parse(res);
 			if(result.code != 0){
 				console.log(result.message);
-				window.open(BaseHttpsUrl);
+				window.open(BaseHttpsUrl+"/user/");
 			}else{
 				//刷新信息
 				userInfo();
@@ -252,7 +251,7 @@ function followBtn(){
 			var result = JSON.parse(res);
 			if(result.code != 0){
 				console.log(result.message);
-				window.open(BaseHttpsUrl);
+				window.open(BaseHttpsUrl+"/user/");
 			}else{
 				//刷新信息
 				//userInfo();
@@ -288,7 +287,7 @@ function commentSaveBtn(){
 			var result = JSON.parse(res);
 			if(result.code != 0){
 				console.log(result.message);
-				window.open(BaseHttpsUrl);
+				window.open(BaseHttpsUrl+"/user/");
 			}else{
 				//刷新信息
 				commentInfo();

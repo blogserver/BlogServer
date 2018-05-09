@@ -2,12 +2,6 @@
 *	博客搜索页面的JS
 *	v1.0
 */
-// 
-//  使用nginx跳转 解决跨域访问问题
-//	location /solr {
-//			proxy_pass http://localhost:8983/solr;
-//		}
-//var SolrServerUrl = BaseHttpUrl+":8983";
 /**
 * 初始化加载
 */
@@ -34,7 +28,7 @@ function search(q,start,rows){
 	}
 
 	$.ajax({
-		url : BaseHttpUrl+"/solr/db/select?q="+q+"&start="+start+"&rows="+rows,
+		url : BaseHttpsUrl+"/solr/db/select?q="+q+"&start="+start+"&rows="+rows,
 		type : "get",
 		success : function(res) {
 			searchResult(res.response.docs);
@@ -48,7 +42,7 @@ function search(q,start,rows){
 function searchResult(data){
 	var html = "";
 	$.each(data,function(index,ele){
-		html += "<p><a href=\"" +BaseHttpUrl+ "/"+ele.location+"\" target=\"_blank\">"+ele.title+"</a>----------------"+ele.updatetime+"</p>";
+		html += "<p><a href=\"" +BaseHttpsUrl+ "/"+ele.location+"\" target=\"_blank\">"+ele.title+"</a>----------------"+ele.updatetime+"</p>";
 	});
 	$("#searchResult").html(html);
 }

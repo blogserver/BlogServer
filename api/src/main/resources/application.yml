@@ -8,3 +8,7 @@ mybatis:
   
 pagehelper:
   helper-dialect: mysql
+server:
+  servlet:
+    context-path: /api
+    

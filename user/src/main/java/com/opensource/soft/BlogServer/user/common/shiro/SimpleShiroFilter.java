@@ -32,7 +32,7 @@ public class SimpleShiroFilter extends OncePerRequestFilter {
 		// response.addHeader("Access-Control-Allow-Origin", "*");
 		String os = System.getProperty("os.name");  
 		if(os.toLowerCase().startsWith("win")){  
-			response.addHeader("Access-Control-Allow-Origin", "http://localhost");
+			response.addHeader("Access-Control-Allow-Origin", "https://localhost");
 		}else{
 			response.addHeader("Access-Control-Allow-Origin", "http://www.chinaopensource.top");
 		}

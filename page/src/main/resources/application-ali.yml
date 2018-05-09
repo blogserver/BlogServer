@@ -19,5 +19,5 @@ server:
 
 pageblog:
   web-site: /root/software/website/
-  web-url: http://www.chinaopensource.top
+  web-url: https://www.chinaopensource.top
   cacheftl: true

@@ -16,10 +16,8 @@ spring:
       test-on-return: false 
 
 server:
-  port: 443
-  ssl:
-    key-store: classpath:mykeys.jks
-    key-store-password: 123456
+  port: 8080
+
 userblog:
   api-server-url: http://localhost:9001
   static-url: http://localhost

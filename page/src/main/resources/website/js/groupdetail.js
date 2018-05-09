@@ -3,7 +3,6 @@
 *	v1.0
 */
 
-var ApiServerUrl = BaseHttpUrl+":9001";
 var groupid = getQueryString("groupid");
 /**
 * 初始化加载
@@ -39,7 +38,7 @@ function gropInfo(){
 			if(result.code == 0){
 				var html ="";
 				$.each(result.data, function(i,ele){ 
-					html += "<p><a href=\"" +BaseHttpUrl+ "/"+ele.location+"\" target=\"_blank\">"+ele.title+"</a>----------------"+formatDateTime(ele.createtime)+"</p>";
+					html += "<p><a href=\"" +BaseHttpsUrl+ "/"+ele.location+"\" target=\"_blank\">"+ele.title+"</a>----------------"+formatDateTime(ele.createtime)+"</p>";
 				});
 				$("#newsblog").html(html);
 			}

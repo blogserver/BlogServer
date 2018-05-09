@@ -13,3 +13,7 @@ mybatis:
   type-aliases-package: com.chinaopensource.soft.BlogServer.user
 pagehelper:
   helper-dialect: mysql
+  
+server:
+  servlet:
+    context-path: /user

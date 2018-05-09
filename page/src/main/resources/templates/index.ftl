@@ -17,7 +17,7 @@
     <![endif]-->
         
     <!-- blog系统css -->
-    <link href="${staticUrl}/static/css/detail.css" rel="stylesheet">
+    <link href="${staticUrl}/css/detail.css" rel="stylesheet">
     
 </head>
 <body>
@@ -55,13 +55,13 @@
     
         
 	<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
-    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    
 	<!-- blog系统JS -->
-	<script src="${staticUrl}/static/js/common.js"></script>
-    <script src="${staticUrl}/static/js/index.js"></script>
+	<script src="${staticUrl}/js/common.js"></script>
+    <script src="${staticUrl}/js/index.js"></script>
     
 </body>
 </html>

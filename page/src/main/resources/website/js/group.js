@@ -3,7 +3,6 @@
 *	v1.0
 */
 
-var ApiServerUrl = BaseHttpUrl+":9001";
 var setting
 /**
 * 初始化加载
@@ -81,7 +80,7 @@ function setZtree(){
 }
 
 function zTreeOnClick(event, treeId, treeNode) {
-	window.open(BaseHttpUrl+"/groupdetail.html?groupid="+treeNode.id);
+	window.open(BaseHttpsUrl+"/groupdetail.html?groupid="+treeNode.id);
 };
 
 function beforeEditName(treeId, treeNode) {

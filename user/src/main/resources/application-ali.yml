@@ -15,11 +15,7 @@ spring:
       test-on-borrow: false
       test-on-return: false
 server:
-  port: 443
-  ssl:
-    key-store: classpath:214554140770506.pfx
-    key-store-password: 214554140770506
-    key-store-type: PKCS12
+  port: 8080
 userblog:
   api-server-url: http://www.chinaopensource.top:9001
   static-url: http://www.chinaopensource.top

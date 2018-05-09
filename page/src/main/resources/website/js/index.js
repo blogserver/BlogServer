@@ -2,8 +2,6 @@
 *	博客详细页面的JS
 *	v1.0
 */
-var ApiServerUrl = BaseHttpUrl+":9001";
-
 /**
 * 初始化加载
 */
@@ -26,7 +24,7 @@ function newBlogs(){
 				console.log("开始设置");
 				var html = "";
 				$.each(data, function(i,ele){ 
-					html += "<p><a href=\"" +BaseHttpUrl+ "/"+ele.location+"\" target=\"_blank\">"+ele.title+"</a>----------------"+formatDateTime(ele.createtime)+"</p>";
+					html += "<p><a href=\"" +BaseHttpsUrl+ "/"+ele.location+"\" target=\"_blank\">"+ele.title+"</a>----------------"+formatDateTime(ele.createtime)+"</p>";
 				});
 				$("#newsblog").html(html);
 				

@@ -2,8 +2,8 @@
 *	博客详细页面的JS
 *	v1.0
 */
-var BaseHttpUrl = "http://"+window.location.host;
 var BaseHttpsUrl = "https://"+window.location.host;
+var ApiServerUrl = BaseHttpsUrl+"/api";
 
 /**
 * 初始化加载
@@ -28,7 +28,7 @@ function pageHeader(){
             +'<span class="icon-bar"></span>'
             +'<span class="icon-bar"></span>'
             +'</button>'
-            +'<a class="navbar-brand" href="'+BaseHttpUrl+'">Brand</a>'
+            +'<a class="navbar-brand" href="'+BaseHttpsUrl+'">Brand</a>'
             +'</div>'
 
             +'<!-- Collect the nav links, forms, and other content for toggling -->'
@@ -47,7 +47,7 @@ function pageHeader(){
             +'<li><a href="#">One more separated link</a></li>'
             +'</ul>'
             +'</li>'
-			+'<li><a href="'+BaseHttpUrl+'/group.html">分类搜索</a></li>'
+			+'<li><a href="'+BaseHttpsUrl+'/group.html">分类搜索</a></li>'
             +'</ul>'
             +'<form class="navbar-form navbar-left">'
             +'<div class="form-group">'
@@ -61,7 +61,7 @@ function pageHeader(){
 		var username=getCookie('username');
 		if(username!=null && username!=""){
 			console.log('Welcome again '+username+'!');
-			parthtml ='<li><a id= "headBlog" href="'+BaseHttpsUrl+'/blog/">写博客</a></li>'
+			parthtml ='<li><a id= "headBlog" href="'+BaseHttpsUrl+'/user/blog/">写博客</a></li>'
             +'<li class="dropdown">'
             +'<a href="#" class="dropdown-toggle" id="headLoginName" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'+username+'</a>'
             +'<ul class="dropdown-menu">'
@@ -69,13 +69,13 @@ function pageHeader(){
             +'<li><a href="#">Another action</a></li>'
             +'<li><a href="#">Something else here</a></li>'
             +'<li role="separator" class="divider"></li>'
-            +'<li><a onclick="logout()" href="'+BaseHttpsUrl+'/user/logout">退出</a></li>'
+            +'<li><a onclick="logout()" href="'+BaseHttpsUrl+'/user/user/logout">退出</a></li>'
             +'</ul>'
             +'</li>'
 		}else{
 			console.log('没有登陆');
-			parthtml ='<li><a id = "headRegister" href="'+BaseHttpsUrl+'/user/register">注册</a></li>'
-            +'<li><a id = "headLogin" href="'+BaseHttpsUrl+'/user/login">登陆</a></li>'
+			parthtml ='<li><a id = "headRegister" href="'+BaseHttpsUrl+'/user/user/register">注册</a></li>'
+            +'<li><a id = "headLogin" href="'+BaseHttpsUrl+'/user/user/login">登陆</a></li>'
 		}
 		
 		var endhtml = '</ul>'
@@ -92,7 +92,7 @@ function pageHeader(){
  */
 function searchBtn(){
 	var q=$("#searchContent").val();
-	window.open(BaseHttpUrl+"/search.html?q="+q);
+	window.open(BaseHttpsUrl+"/search.html?q="+q);
 }
 
 /**

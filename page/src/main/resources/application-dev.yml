@@ -18,6 +18,6 @@ server:
   port: 9011
 
 pageblog:
-  web-site: D:\\work\\website\\
-  web-url: http://localhost
+  web-site: D:\\work\\BlogServer\\page\\src\\main\\resources\\website\\
+  web-url: https://localhost
   cacheftl: false
