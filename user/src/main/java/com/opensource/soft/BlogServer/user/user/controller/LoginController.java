@@ -29,7 +29,6 @@ import com.opensource.soft.BlogServer.user.common.util.ValidateCode;
 import com.opensource.soft.BlogServer.user.user.model.User;
 
 @Controller
-@RequestMapping(value = "/user")
 public class LoginController {
 
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
@@ -58,7 +57,7 @@ public class LoginController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login() {
-		return "user/login";
+		return "login";
 	}
 	
 	@RequestMapping(value = "/*", method = RequestMethod.GET)

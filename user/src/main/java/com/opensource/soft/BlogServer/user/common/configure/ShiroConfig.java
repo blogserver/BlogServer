@@ -70,7 +70,7 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setSecurityManager(securityManager());
         shiroFilterFactoryBean.setLoginUrl("/user/login");
         shiroFilterFactoryBean.setSuccessUrl("/user/");
-        shiroFilterFactoryBean.setUnauthorizedUrl("/user/unauth");
+        shiroFilterFactoryBean.setUnauthorizedUrl("/unauth");
 
         Map<String, Filter> filters = new HashMap<String, Filter>();
         filters.put("SimpleShiroFilter", simpleShiroFilter());
@@ -81,10 +81,10 @@ public class ShiroConfig {
         //注意过滤器配置顺序 不能颠倒  
         filterChainDefinitionMap.put("/resources/**", "anon");
 
-        filterChainDefinitionMap.put("/user/login", "anon");
+        filterChainDefinitionMap.put("/login", "anon");
         filterChainDefinitionMap.put("/user/register", "anon");
         filterChainDefinitionMap.put("/user/addUser", "anon");
-        filterChainDefinitionMap.put("/user/validateCode", "anon");
+        filterChainDefinitionMap.put("/validateCode", "anon");
      //   filterChainDefinitionMap.put("/**", "anon");
         filterChainDefinitionMap.put("/blog/likeBlog", "HttpAjaxAuthcFilter");
         filterChainDefinitionMap.put("/blog/collectBlog", "HttpAjaxAuthcFilter");
