@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.opensource.soft.BlogServer.common.BaseResponse;
 import com.opensource.soft.BlogServer.common.ErrorMessage;
+import com.opensource.soft.BlogServer.user.common.shiro.ShiroUser;
 import com.opensource.soft.BlogServer.user.user.model.Follow;
 import com.opensource.soft.BlogServer.user.user.model.User;
 import com.opensource.soft.BlogServer.user.user.service.UserService;
@@ -25,6 +26,18 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	/**
+	 * 登录用户信息
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/info", method = RequestMethod.GET)
+	public String info(Model model) {
+		logger.info("Welcome home!");
+		model.addAttribute("user",ShiroUser.getUser());
+		return "user/info";
+	}
 	
 	/**
 	 * 注册页面
