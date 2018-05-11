@@ -69,13 +69,13 @@ function pageHeader(){
             +'<li><a href="#">Another action</a></li>'
             +'<li><a href="#">Something else here</a></li>'
             +'<li role="separator" class="divider"></li>'
-            +'<li><a onclick="logout()" href="'+BaseHttpsUrl+'/user/user/logout">退出</a></li>'
+            +'<li><a onclick="logout()" href="'+BaseHttpsUrl+'/user/logout">退出</a></li>'
             +'</ul>'
             +'</li>'
 		}else{
 			console.log('没有登陆');
-			parthtml ='<li><a id = "headRegister" href="'+BaseHttpsUrl+'/user/user/register">注册</a></li>'
-            +'<li><a id = "headLogin" href="'+BaseHttpsUrl+'/user/user/login">登陆</a></li>'
+			parthtml ='<li><a id = "headRegister" href="'+BaseHttpsUrl+'/user/register">注册</a></li>'
+            +'<li><a id = "headLogin" href="'+BaseHttpsUrl+'/user/login">登陆</a></li>'
 		}
 		
 		var endhtml = '</ul>'

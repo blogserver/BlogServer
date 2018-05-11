@@ -37,7 +37,7 @@ public class LoginController {
 	public String home(Model model) {
 		logger.info("Welcome home!");
 		model.addAttribute("user",ShiroUser.getUser());
-		return "user/home";
+		return "home";
 	}
 
 	@ResponseBody
@@ -52,7 +52,7 @@ public class LoginController {
 
 	@RequestMapping(value = "/unauth", method = RequestMethod.GET)
 	public String unauth() {
-		return "user/unauth";
+		return "unauth";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -64,9 +64,9 @@ public class LoginController {
 	public String patternUrl() {
 		Subject user = SecurityUtils.getSubject();
 		if(user.isAuthenticated()){
-			return "redirect:/user/";
+			return "redirect:/";
 		}else{
-			return "redirect:/user/login";
+			return "redirect:/login";
 		}
 	}
 
@@ -76,7 +76,7 @@ public class LoginController {
 		String sessionValidateCode = (String) request.getSession().getAttribute("validateCode");
 		if(!validateCode.equals(sessionValidateCode)) {
 			model.addAttribute("errMsg", "验证码错误");
-			return "user/login";
+			return "login";
 		}
 		
 		Subject user = SecurityUtils.getSubject();
@@ -89,13 +89,13 @@ public class LoginController {
         catch (Exception e)
         {
             logger.error(e.getMessage(), e);
-            return "redirect:/user/login";
+            return "login";
         }
         
         Cookie cookie = new Cookie("username", ShiroUser.getUser().getNickname());
         cookie.setPath("/");
 		response.addCookie(cookie);
-		return "redirect:/user/";
+		return "redirect:/";
 	}
 	
 	/** 
@@ -108,7 +108,7 @@ public class LoginController {
          cookie.setMaxAge(0);
          cookie.setPath("/");
 		 response.addCookie(cookie);
-         return "redirect:/user/login";  
+         return "redirect:/login";  
     }  
 
     
