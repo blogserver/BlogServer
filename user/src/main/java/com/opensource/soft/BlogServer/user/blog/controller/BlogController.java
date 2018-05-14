@@ -46,10 +46,10 @@ public class BlogController {
         return BaseResponse.successJson();
     }
 
-    @ResponseBody
-    @RequestMapping(value="/findMyBlog", method = RequestMethod.GET)
-    public String findMyBlog(){
-        return BaseResponse.successJson( blogService.findMyBlog());
+    @RequestMapping(value="/myBlog", method = RequestMethod.GET)
+    public String findMyBlog(@RequestParam(required=false,defaultValue="0")Integer pageNum, @RequestParam(required=false,defaultValue="10")Integer pageSize,Model model){
+        model.addAttribute("myblog", blogService.findMyBlog(pageNum,pageSize));
+        return "blog/myBlog";
     }
     
     // 单文件上传

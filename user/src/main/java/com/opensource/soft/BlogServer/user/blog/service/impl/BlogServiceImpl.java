@@ -3,6 +3,8 @@ package com.opensource.soft.BlogServer.user.blog.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.opensource.soft.BlogServer.user.blog.dao.BlogMapper;
 import com.opensource.soft.BlogServer.user.blog.dao.CollectMapper;
 import com.opensource.soft.BlogServer.user.blog.dao.CountMapper;
@@ -47,8 +49,12 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public List<Blog> findMyBlog() {
-        return blogMapper.findMyBlogs(ShiroUser.getUserId());
+    public PageInfo<Blog> findMyBlog(Integer pageNum, Integer pageSize) {
+    	//获取第1页，10条内容，默认查询总数count
+    	PageHelper.startPage(pageNum, pageSize);
+    	//用PageInfo对结果进行包装
+    	List<Blog> list =  blogMapper.findMyBlogs(ShiroUser.getUserId());
+    	return new PageInfo<Blog>(list);
     }
 
 	@Override
