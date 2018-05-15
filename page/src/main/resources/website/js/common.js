@@ -34,7 +34,7 @@ function pageHeader(){
             +'<!-- Collect the nav links, forms, and other content for toggling -->'
             +'<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">'
             +'<ul class="nav navbar-nav">'
-            +'<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>'
+            +'<li class="active"><a href="'+BaseHttpsUrl+'/user">控制台 <span class="sr-only">(current)</span></a></li>'
             +'<li class="dropdown">'
             +'<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>'
             +'<ul class="dropdown-menu">'
@@ -61,7 +61,7 @@ function pageHeader(){
 		var username=getCookie('username');
 		if(username!=null && username!=""){
 			console.log('Welcome again '+username+'!');
-			parthtml ='<li><a id= "headBlog" href="'+BaseHttpsUrl+'/user/blog/">写博客</a></li>'
+			parthtml ='<li><a id= "headBlog" href="'+BaseHttpsUrl+'/user/blog/create">写博客</a></li>'
             +'<li class="dropdown">'
             +'<a href="#" class="dropdown-toggle" id="headLoginName" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'+username+'</a>'
             +'<ul class="dropdown-menu">'

@@ -156,7 +156,7 @@ function collectBtn(){
 	console.log("点击收藏事件");
 	if(!checkLogin())return;
 	$.ajax({
-		url : BaseHttpsUrl+"/blog/collectBlog",
+		url : BaseHttpsUrl+"/user/blog/collectBlog",
 		type : "post",
 		data :{
 			"bloguuid":blogUUID
@@ -199,7 +199,7 @@ function checkLogin(){
 
 function likeUserServer(status){
 	$.ajax({
-		url : BaseHttpsUrl+"/blog/likeBlog",
+		url : BaseHttpsUrl+"/user/blog/likeBlog",
 		type : "post",
 		data :{
 			"bloguuid":blogUUID,
@@ -236,7 +236,7 @@ function followBtn(){
 	console.log("点击关注事件");
 	if(!checkLogin())return;
 	$.ajax({
-		url : BaseHttpsUrl+"/user/followUser",
+		url : BaseHttpsUrl+"/user/user/followUser",
 		type : "post",
 		data :{
 			"followuserid":blogUserId
@@ -271,7 +271,7 @@ function commentSaveBtn(){
 	console.log("点击保存评论事件");
 	if(!checkLogin())return;
 	$.ajax({
-		url : BaseHttpsUrl+"/comment/saveComment",
+		url : BaseHttpsUrl+"/user/comment/saveComment",
 		type : "post",
 		data :{
 			"bloguuid":blogUUID,

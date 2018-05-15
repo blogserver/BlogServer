@@ -33,9 +33,9 @@ public class BlogController {
     @Autowired
     private UserProperties userProperties;
     
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String home(Model model) {
-        return "blog/createblog";
+        return "blog/create";
     }
 
     @ResponseBody
