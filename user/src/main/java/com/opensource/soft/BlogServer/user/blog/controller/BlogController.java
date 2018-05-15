@@ -96,4 +96,10 @@ public class BlogController {
         return BaseResponse.successJson();
     }
 
+    @RequestMapping(value="/myCollect", method = RequestMethod.GET)
+    public String findMyCollect(@RequestParam(required=false,defaultValue="1")Integer pageNum, @RequestParam(required=false,defaultValue="10")Integer pageSize,Model model){
+        model.addAttribute("myCollect", blogService.findMyCollect(pageNum,pageSize));
+        model.addAttribute("url", userProperties.getStaticUrl());
+        return "blog/myCollect";
+    }
 }

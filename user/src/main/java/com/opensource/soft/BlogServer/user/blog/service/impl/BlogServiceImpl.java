@@ -97,4 +97,13 @@ public class BlogServiceImpl implements BlogService {
 			countMapper.updateCollectAddByUuid(collect.getBloguuid());
 		}
 	}
+
+	@Override
+	public PageInfo<Blog> findMyCollect(Integer pageNum, Integer pageSize) {
+		//获取第1页，10条内容，默认查询总数count
+    	PageHelper.startPage(pageNum, pageSize);
+    	//用PageInfo对结果进行包装
+    	List<Blog> list =  blogMapper.findMyCollects(ShiroUser.getUserId());
+    	return new PageInfo<Blog>(list);
+	}
 }

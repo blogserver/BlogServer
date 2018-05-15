@@ -15,4 +15,6 @@ public interface BlogService {
 	void likeBlog(Likes likes);
 
 	void collectBlog(Collect collect);
+
+	PageInfo<Blog> findMyCollect(Integer pageNum, Integer pageSize);
 }

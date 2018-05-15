@@ -31,4 +31,13 @@
 		WHERE createuser = #{userId,jdbcType=INTEGER} and  deleteflag = 0
 		ORDER BY createtime DESC
 	</select>
+	
+	
+	<select id="findMyCollects" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		SELECT b.*
+		FROM collect c LEFT JOIN blog b ON  b.`uuid` = c.`bloguuid`
+		WHERE c.`userid` = #{userId,jdbcType=INTEGER}  AND  c.deleteflag = 0 
+		ORDER BY c.createtime DESC
+	</select>
+	
 </mapper>
