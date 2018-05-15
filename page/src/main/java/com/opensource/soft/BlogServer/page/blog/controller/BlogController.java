@@ -7,11 +7,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONObject;
 import com.opensource.soft.BlogServer.common.BaseResponse;
 import com.opensource.soft.BlogServer.page.blog.service.BlogService;
 import com.opensource.soft.BlogServer.page.common.freemarker.FreemakerHelper;
@@ -67,9 +68,10 @@ public class BlogController {
     }
 	
 	@ResponseBody
-	@RequestMapping(value = "/createPage", method = RequestMethod.GET)
-	public String createPage(String uuid , Model model) {
-		logger.info("创建页面 uuid {}",uuid);
+	@RequestMapping(value = "/createPage", method = RequestMethod.POST)
+	public String createPage(@RequestBody String data) {
+		logger.info("接收请求数据 {}",data);
+		String uuid = (String) JSONObject.parseObject(data).get("uuid");
 		this.blogService.createPage(uuid);
 		return BaseResponse.successJson();
 	}
