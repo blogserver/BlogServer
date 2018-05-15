@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.opensource.soft.BlogServer.common.util.HttpsUtil;
 import com.opensource.soft.BlogServer.user.blog.dao.BlogMapper;
 import com.opensource.soft.BlogServer.user.blog.dao.CollectMapper;
 import com.opensource.soft.BlogServer.user.blog.dao.CountMapper;
@@ -14,10 +15,14 @@ import com.opensource.soft.BlogServer.user.blog.model.Blog;
 import com.opensource.soft.BlogServer.user.blog.model.Collect;
 import com.opensource.soft.BlogServer.user.blog.model.Likes;
 import com.opensource.soft.BlogServer.user.blog.service.BlogService;
+import com.opensource.soft.BlogServer.user.common.property.UserProperties;
 import com.opensource.soft.BlogServer.user.common.shiro.ShiroUser;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service(value="blogService")
 public class BlogServiceImpl implements BlogService {
@@ -37,6 +42,9 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     private GroupBlogMapper groupBlogMapper;
     
+    @Autowired
+    private UserProperties userProperties;
+    
     @Override
     public int save(Blog blog, String groupIds) {
         blog.setDeleteflag(false);
@@ -45,9 +53,29 @@ public class BlogServiceImpl implements BlogService {
         blog.setCreatetime(new Date());
         blog.setUpdatetime(new Date());
         groupBlogMapper.insert(blog.getUuid(), groupIds.split(","));
-        return blogMapper.save(blog);
+        blogMapper.save(blog);
+        createPage(blog.getUuid());
+        return 0;
     }
 
+    /**
+     * 生成页面
+     * @param uuid
+     */
+    private void createPage(String uuid) {
+    	Map<String, Object> params = new HashMap<String, Object>();
+		params.put("uuid", uuid);
+		String url = userProperties.getPageServerUrl()+"/page/createPage";
+		String result = null;
+		try {
+			result= HttpsUtil.doPostJson(url, params);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(result);
+    }
+    
     @Override
     public PageInfo<Blog> findMyBlog(Integer pageNum, Integer pageSize) {
     	//获取第1页，10条内容，默认查询总数count

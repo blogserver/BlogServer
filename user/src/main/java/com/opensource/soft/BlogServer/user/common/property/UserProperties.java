@@ -13,6 +13,8 @@ public class UserProperties {
 	
 	private String webSite;
 
+	private String pageServerUrl;
+	
 	public String getApiServerUrl() {
 		return apiServerUrl;
 	}
@@ -35,6 +37,14 @@ public class UserProperties {
 
 	public void setWebSite(String webSite) {
 		this.webSite = webSite;
+	}
+
+	public String getPageServerUrl() {
+		return pageServerUrl;
+	}
+
+	public void setPageServerUrl(String pageServerUrl) {
+		this.pageServerUrl = pageServerUrl;
 	}
 
 }

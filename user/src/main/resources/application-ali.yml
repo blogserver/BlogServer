@@ -18,5 +18,6 @@ server:
   port: 8080
 userblog:
   api-server-url: http://www.chinaopensource.top:9001
+  page-server-url: http://www.chinaopensource.top:9011
   static-url: https://www.chinaopensource.top
   web-site: /root/software/website/
