@@ -1,19 +1,23 @@
 <div class="col-lg-10">
-	<div th:text="${myblog.isFirstPage}">123</div>
+	<div th:each="content : ${myblog.list} ">
+		<a th:text=${content.title} th:href="@{{url}/{loc}(loc=${content.location},url=${url})}" target="_blank"></a>
+	</div>
 	
-	<nav aria-label="Page navigation">
+	<!-- 分页 -->
+	<input type="hidden" id="pageNum" th:value="${myblog.pageNum}">
+	<nav aria-label="Page navigation justify-content-center">
 	  <ul class="pagination">
-	    <li th:unless=${myblog.isFirstPage}>
-	      <a href="#" aria-label="Previous">
-	        <span aria-hidden="true">&laquo;</span>
+	    <li th:if=${myblog.hasPreviousPage}>
+	      <a href="#" aria-label="Previous" onclick= "clickpage(this)" >
+	        <span aria-hidden="true">上一页</span>
 	      </a>
 	    </li>
 	    <li th:each="num : ${myblog.navigatepageNums}" >
-	    	<a href="#" th:text="${num}">1</a>
+	    	<a href="#" onclick= "clickpage(this)" th:text="${num}">1</a>
 	    </li>
-	    <li th:unless=${myblog.isLastPage}>
+	    <li th:if=${myblog.hasNextPage} onclick= "clickpage(this)" >
 	      <a href="#" aria-label="Next">
-	        <span aria-hidden="true">&raquo;</span>
+	        <span aria-hidden="true">下一页</span>
 	      </a>
 	    </li>
 	  </ul>
@@ -21,14 +25,23 @@
 </div>
 
 <script th:inline="javascript">
- $(".list-group a").click(function() {
-        $(".list-group a").removeClass('active');
-        $(this).addClass('active');
-
+ var pageName = parseInt($("#pageNum").val());
+ $(function(){
+	$.each($("#myInfo li a"),function(index,ele){
+		if(ele.text == pageName){
+			ele.parentNode.className = 'active';
+		}		
+	});
  });
- 
- function goBlogPage(pageNum){
-	 console.log(pageNum);
-	 
+ //跳转到页面
+ function clickpage(target){
+	 var num = $(target).text();
+	 if(num.indexOf("上一页")!=-1){
+		 num = pageName - 1;
+	 } else if(num.indexOf("下一页")!=-1){
+		 num = pageName + 1;
+	 }
+	 console.log(num);
+	 changeContent('blog/myBlog?pageNum='+num);
  }
 </script>

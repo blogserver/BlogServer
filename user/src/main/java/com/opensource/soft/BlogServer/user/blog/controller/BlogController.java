@@ -47,8 +47,9 @@ public class BlogController {
     }
 
     @RequestMapping(value="/myBlog", method = RequestMethod.GET)
-    public String findMyBlog(@RequestParam(required=false,defaultValue="0")Integer pageNum, @RequestParam(required=false,defaultValue="10")Integer pageSize,Model model){
+    public String findMyBlog(@RequestParam(required=false,defaultValue="1")Integer pageNum, @RequestParam(required=false,defaultValue="10")Integer pageSize,Model model){
         model.addAttribute("myblog", blogService.findMyBlog(pageNum,pageSize));
+        model.addAttribute("url", userProperties.getStaticUrl());
         return "blog/myBlog";
     }
     

@@ -20,5 +20,5 @@ server:
 
 userblog:
   api-server-url: http://localhost:9001
-  static-url: http://localhost
+  static-url: https://localhost
   web-site: D:\\work\\website\\
