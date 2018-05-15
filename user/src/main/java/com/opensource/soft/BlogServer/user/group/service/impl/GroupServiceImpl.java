@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.opensource.soft.BlogServer.user.common.shiro.ShiroUser;
 import com.opensource.soft.BlogServer.user.group.data.Group;
 import com.opensource.soft.BlogServer.user.group.mapper.GroupMapper;
@@ -37,6 +39,15 @@ public class GroupServiceImpl implements GroupService {
 	@Override
 	public List<Group> findAllGroup() {
 		return groupMapper.selectAllGroup();
+	}
+
+	@Override
+	public PageInfo<Group> findMyGroup(Integer pageNum, Integer pageSize) {
+		//获取第1页，10条内容，默认查询总数count
+    	PageHelper.startPage(pageNum, pageSize);
+    	//用PageInfo对结果进行包装
+    	List<Group> list =  groupMapper.findMyGroups(ShiroUser.getUserId());
+    	return new PageInfo<Group>(list);
 	}
 
 }

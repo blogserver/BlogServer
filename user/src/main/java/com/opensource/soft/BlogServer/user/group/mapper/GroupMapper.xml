@@ -73,4 +73,10 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   
+  <select id="findMyGroups" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select *
+		FROM `group`
+		WHERE createuser = #{userId,jdbcType=INTEGER} and  deleteflag = 0
+		ORDER BY createtime DESC
+  </select>
 </mapper>

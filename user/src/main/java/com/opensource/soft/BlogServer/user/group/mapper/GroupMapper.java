@@ -1,10 +1,11 @@
 package com.opensource.soft.BlogServer.user.group.mapper;
 
-import com.opensource.soft.BlogServer.user.group.data.Group;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
+
+import com.opensource.soft.BlogServer.user.group.data.Group;
 
 @Component
 @Mapper
@@ -17,4 +18,6 @@ public interface GroupMapper {
     List<Group> selectAllGroup();
 
     int updateById(Group group);
+
+	List<Group> findMyGroups(Integer userId);
 }
