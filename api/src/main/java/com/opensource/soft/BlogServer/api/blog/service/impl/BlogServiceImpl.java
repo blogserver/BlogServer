@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.opensource.soft.BlogServer.api.blog.dao.BlogMapper;
 import com.opensource.soft.BlogServer.api.blog.dao.CountMapper;
 import com.opensource.soft.BlogServer.api.blog.dao.VisitMapper;
@@ -32,7 +34,12 @@ public class BlogServiceImpl implements BlogService{
 	public List<Blog> findNewBlogs() {
 		Blog blog = new Blog();
 		blog.setStatus(Constant.BLOGSTATUS.RELEASE_SUCCESS);
-		return this.blogMapper.findNewBlogs(blog);
+		//获取第1页，10条内容，默认查询总数count
+    	PageHelper.startPage(1, 10);
+    	//用PageInfo对结果进行包装
+    	List<Blog> listBlog = this.blogMapper.findNewBlogs(blog);
+    	PageInfo<Blog> pageInfo = new PageInfo<Blog>(listBlog);
+		return pageInfo.getList();
 	}
 
 	@Override
@@ -66,6 +73,16 @@ public class BlogServiceImpl implements BlogService{
 	@Override
 	public List<Blog> findByGroupId(Integer groupId) {
 		return this.blogMapper.findByGroupId(groupId) ;
+	}
+
+	@Override
+	public List<Blog> findHighVisitBlogs() {
+		//获取第1页，10条内容，默认查询总数count
+    	PageHelper.startPage(1, 10);
+    	//用PageInfo对结果进行包装
+    	List<Blog> listBlog = this.blogMapper.findHighVisitBlogs();
+    	PageInfo<Blog> pageInfo = new PageInfo<Blog>(listBlog);
+		return pageInfo.getList();
 	}
 
 }

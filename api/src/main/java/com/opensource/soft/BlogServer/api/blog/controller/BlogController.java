@@ -30,6 +30,17 @@ public class BlogController {
 	}
 
 	/**
+	 * 获取访问量最高的blog内容
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/highVisit", method = RequestMethod.GET)
+	public String findHighVisitBlogs() {
+		return BaseResponse.successJson(blogService.findHighVisitBlogs());
+	}
+
+	
+	/**
 	 * blog访问 记录
 	 * 
 	 * @return

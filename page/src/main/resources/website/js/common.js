@@ -102,7 +102,7 @@ function searchBtn(){
 function pageFooter(){
 	var html = '<nav class="navbar navbar-default navbar-fixed-bottom">'
 			   +'<div class="container-fluid">'
-			   +'<h4><p style="text-align: center">this is footer</p></h4>'
+			   +'<h4><p style="text-align: center">&copy;2017-2018  &nbsp; 皖ICP备17027939号</p></h4>'
 			   +'</div>'
 			   +'</nav>';
 	$("#footer").html(html);

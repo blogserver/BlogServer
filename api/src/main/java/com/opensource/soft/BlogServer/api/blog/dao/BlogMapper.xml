@@ -20,6 +20,22 @@
 		ORDER BY createtime DESC
 	</select>
 	
+	<select id="findHighVisitBlogs"  resultMap="BaseResultMap">
+		SELECT 
+		  b.* 
+		FROM
+		  (SELECT 
+		    v.`blogid` vb,
+		    COUNT(*) co 
+		  FROM
+		    visit v 
+		  GROUP BY v.`blogid`) vc 
+		  LEFT JOIN blog b 
+		    ON b.uuid = vc.vb 
+		WHERE b.`status` = 3 
+		ORDER BY vc.co DESC 
+	</select>
+	
 	<select id="findByGroupId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
 		SELECT * FROM groupblog gb LEFT JOIN blog b ON gb.`bloguuid` = b.`uuid`
 		WHERE gb.`groupid` =  #{groupId,jdbcType=INTEGER} AND b.`status` =3 

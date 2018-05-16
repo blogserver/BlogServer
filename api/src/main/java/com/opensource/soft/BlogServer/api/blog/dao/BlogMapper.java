@@ -15,4 +15,6 @@ public interface BlogMapper {
 
 	List<Blog> findByGroupId(Integer groupId);
 
+	List<Blog> findHighVisitBlogs();
+
 }

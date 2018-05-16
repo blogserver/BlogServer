@@ -39,10 +39,10 @@
             <div class="col-md-6">
                 <div class="panel panel-primary">
                 	<div class="panel-heading">
-                        <h3 class="panel-title">最新更新博客</h3>
+                        <h3 class="panel-title">访问量最高博客</h3>
                     </div>
                     <div class="panel-body">
-                    <div id="newsblog"></div>
+                    <div id="highvisitblog"></div>
                     </div>
                 </div>
             </div>
