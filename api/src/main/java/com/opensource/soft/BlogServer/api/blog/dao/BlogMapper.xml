@@ -36,9 +36,36 @@
 		ORDER BY vc.co DESC 
 	</select>
 	
-	<select id="findByGroupId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+	<select id="findNewsByGroupId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
 		SELECT * FROM groupblog gb LEFT JOIN blog b ON gb.`bloguuid` = b.`uuid`
 		WHERE gb.`groupid` =  #{groupId,jdbcType=INTEGER} AND b.`status` =3 
 		ORDER BY b.`updatetime` DESC
 	</select>
+	
+	<select id="findHightVisitByGroupId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		SELECT 
+		  bb.* 
+		FROM
+		  (SELECT 
+		    b.* 
+		  FROM
+		    blog b 
+		  WHERE b.`status` = 3 AND b.`uuid` IN 
+		    (SELECT 
+		      gb.`bloguuid` 
+		    FROM
+		      groupblog gb 
+		    WHERE gb.`groupid` =  #{groupId,jdbcType=INTEGER} )) bb 
+		  LEFT JOIN 
+		    (SELECT 
+		      v.`blogid` vb,
+		      COUNT(*) cou 
+		    FROM
+		      visit v 
+		    GROUP BY v.`blogid`) cb 
+		    ON bb.uuid = cb.vb 
+		ORDER BY cb.cou DESC 
+	</select>
+	
+	
 </mapper>

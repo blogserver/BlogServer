@@ -71,8 +71,13 @@ public class BlogServiceImpl implements BlogService{
 	}
 
 	@Override
-	public List<Blog> findByGroupId(Integer groupId) {
-		return this.blogMapper.findByGroupId(groupId) ;
+	public List<Blog> findNewsByGroupId(Integer groupId) {
+		//获取第1页，10条内容，默认查询总数count
+    	PageHelper.startPage(1, 10);
+    	//用PageInfo对结果进行包装
+    	List<Blog> listBlog = this.blogMapper.findNewsByGroupId(groupId) ;
+    	PageInfo<Blog> pageInfo = new PageInfo<Blog>(listBlog);
+		return pageInfo.getList();
 	}
 
 	@Override
@@ -81,6 +86,16 @@ public class BlogServiceImpl implements BlogService{
     	PageHelper.startPage(1, 10);
     	//用PageInfo对结果进行包装
     	List<Blog> listBlog = this.blogMapper.findHighVisitBlogs();
+    	PageInfo<Blog> pageInfo = new PageInfo<Blog>(listBlog);
+		return pageInfo.getList();
+	}
+
+	@Override
+	public List<Blog> findHightVisitByGroupId(Integer groupId) {
+		//获取第1页，10条内容，默认查询总数count
+    	PageHelper.startPage(1, 10);
+    	//用PageInfo对结果进行包装
+    	List<Blog> listBlog = this.blogMapper.findHightVisitByGroupId(groupId) ;
     	PageInfo<Blog> pageInfo = new PageInfo<Blog>(listBlog);
 		return pageInfo.getList();
 	}

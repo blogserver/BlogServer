@@ -14,8 +14,9 @@ public interface BlogService {
 
 	Count findBlogCount(String blogUuid);
 
-	List<Blog> findByGroupId(Integer groupId);
+	List<Blog> findNewsByGroupId(Integer groupId);
 
 	List<Blog> findHighVisitBlogs();
 
+	List<Blog> findHightVisitByGroupId(Integer groupId);
 }

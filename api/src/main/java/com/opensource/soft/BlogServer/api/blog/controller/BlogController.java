@@ -62,9 +62,14 @@ public class BlogController {
 		return BaseResponse.successJson(blogService.findBlogCount(blogUuid));
 	}
 	
-	@RequestMapping(value = "/findByGroupId", method = RequestMethod.GET)
-	public String findByGroupId(Integer groupId) {
-		return BaseResponse.successJson(blogService.findByGroupId(groupId));
+	@RequestMapping(value = "/findNewsByGroupId", method = RequestMethod.GET)
+	public String findNewsByGroupId(Integer groupId) {
+		return BaseResponse.successJson(blogService.findNewsByGroupId(groupId));
+	}
+	
+	@RequestMapping(value = "/findHightVisitByGroupId", method = RequestMethod.GET)
+	public String findHightVisitByGroupId(Integer groupId) {
+		return BaseResponse.successJson(blogService.findHightVisitByGroupId(groupId));
 	}
 	
 }

@@ -37,14 +37,14 @@
 				  <!-- Nav tabs -->
 				  <ul class="nav nav-tabs" role="tablist">
 					<li role="presentation" class="active"><a href="#newsblog" aria-controls="home" role="tab" data-toggle="tab">最新博客</a></li>
-					<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+					<li role="presentation"><a href="#highvisit" aria-controls="profile" role="tab" data-toggle="tab">访问最多博客</a></li>
 					<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
 					<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
 				  </ul>
 				  <!-- Tab panes -->
 				  <div class="tab-content">
 					<div role="tabpanel" class="tab-pane active" id="newsblog">内容暂无</div>
-					<div role="tabpanel" class="tab-pane" id="profile">内容暂无</div>
+					<div role="tabpanel" class="tab-pane" id="highvisit">内容暂无</div>
 					<div role="tabpanel" class="tab-pane" id="messages">内容暂无</div>
 					<div role="tabpanel" class="tab-pane" id="settings">内容暂无</div>
 				  </div>
