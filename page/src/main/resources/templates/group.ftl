@@ -27,7 +27,7 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row" id="header" style="height:  70px;">
+        <div class="row" id="header" style="min-height:  70px;">
         	this is header
         </div>
         <div class="row">
