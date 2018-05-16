@@ -142,7 +142,7 @@ function groupCleanBtn(){
 function groupSaveBtn(){
 	console.log("点击保存分组事件");
 	$.ajax({
-		url : BaseHttpsUrl+"/group/saveGroup",
+		url : BaseHttpsUrl+"/user/group/saveGroup",
 		type : "post",
 		data :{
 			"id":$("#groupid").val(),
