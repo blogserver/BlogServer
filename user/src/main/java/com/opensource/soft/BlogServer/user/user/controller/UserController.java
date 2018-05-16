@@ -40,15 +40,6 @@ public class UserController {
 	}
 	
 	/**
-	 * 注册页面
-	 * @return
-	 */
-	@RequestMapping(value="/register", method = RequestMethod.GET)
-	public String addUserPage(){
-		return "user/register";
-	}
-	
-	/**
 	 * 添加用户
 	 * @param user
 	 * @return

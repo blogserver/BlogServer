@@ -60,6 +60,11 @@ public class LoginController {
 		return "login";
 	}
 	
+	@RequestMapping(value="/register", method = RequestMethod.GET)
+	public String addUserPage(){
+		return "user/register";
+	}
+	
 	@RequestMapping(value = "/*", method = RequestMethod.GET)
 	public String patternUrl() {
 		Subject user = SecurityUtils.getSubject();
