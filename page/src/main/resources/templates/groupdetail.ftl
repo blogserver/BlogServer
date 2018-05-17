@@ -23,7 +23,6 @@
 <body>
     <div class="container-fluid">
         <div class="row" id="header" style="min-height:  70px;">
-        	this is header
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -53,7 +52,6 @@
         </div>
         <!--页面脚-->
         <div class="row" id="footer">
-        	this is footer
         </div>
     </div>
     

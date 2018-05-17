@@ -25,7 +25,6 @@
     <div class="container-fluid">
     	<!--页面头部-->
         <div class="row" id="header" style="min-height:  70px;">
-        	this is header
         </div>
         <!--页面中心内容-->
         <div class="row">
@@ -80,7 +79,6 @@
         </div>
         <!--页面脚-->
         <div class="row" id="footer">
-        	this is footer
         </div>
     </div>
     
