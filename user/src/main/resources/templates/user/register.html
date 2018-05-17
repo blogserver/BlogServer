@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="row" id="header" style="min-height:  70px;">
+		<div class="row" id="header" style="min-height:  70px;"></div>
 		<div class="row">
 			<div class="col-sm-12">
 				<form class="form-horizontal" id="userRegister">
@@ -77,7 +77,7 @@
 	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 	<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="https://www.chinaopensource.top/js/common.js" type="text/javascript"></script>
+	<script th:src="@{{url}/js/common.js(url=${staticurl})}" type="text/javascript"></script>
 	
 	<script th:inline="javascript">
 		function reloadValidateCode(){

@@ -16,6 +16,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.opensource.soft.BlogServer.common.BaseResponse;
+import com.opensource.soft.BlogServer.user.common.property.UserProperties;
 import com.opensource.soft.BlogServer.user.common.shiro.ShiroUser;
 import com.opensource.soft.BlogServer.user.common.util.ValidateCode;
 import com.opensource.soft.BlogServer.user.user.model.User;
@@ -33,10 +35,14 @@ public class LoginController {
 
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
+    @Autowired
+    private UserProperties userProperties;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 		logger.info("Welcome home!");
 		model.addAttribute("user",ShiroUser.getUser());
+		model.addAttribute("staticurl", userProperties.getStaticUrl());
 		return "home";
 	}
 
@@ -51,17 +57,20 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/unauth", method = RequestMethod.GET)
-	public String unauth() {
+	public String unauth(Model model) {
+		model.addAttribute("staticurl", userProperties.getStaticUrl());
 		return "unauth";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login() {
+	public String login(Model model) {
+		model.addAttribute("staticurl", userProperties.getStaticUrl());
 		return "login";
 	}
 	
 	@RequestMapping(value="/register", method = RequestMethod.GET)
-	public String addUserPage(){
+	public String addUserPage(Model model){
+		model.addAttribute("staticurl", userProperties.getStaticUrl());
 		return "user/register";
 	}
 	
