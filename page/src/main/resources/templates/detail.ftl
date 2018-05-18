@@ -57,10 +57,8 @@
 						<textarea id="commentContent" class="form-control" rows="5"></textarea>
 					  </div>
 				  </div>
-				  <div class="form-group">
-						<div class="col-md-9 col-xs-8">
-						</div>
-						<div class="col-md-3 col-xs-4">
+  			      <div class="form-group">
+						<div class="col-md-12 col-xs-12 commentBtn">
 						  <button onclick="commentCancelBtn()" type="button" class="btn btn-default">
 							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>取消
 						  </button>

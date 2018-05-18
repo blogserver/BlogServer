@@ -1,7 +1,11 @@
-ï»¿/**
-*	åšå®¢è¯¦ç»†é¡µé¢çš„CSS
+/**
+*	²©¿ÍÏêÏ¸Ò³ÃæµÄCSS
 *	v1.0
 */
 body{
 	margin-bottom: 50px;
+}
+
+.commentBtn{
+	text-align: right;
 }
