@@ -6,10 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 	<title>创建博客</title>
 	<!-- Bootstrap -->
-	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://cdn.bootcss.com/simditor/2.3.6/styles/simditor.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/zTree.v3/3.5.33/css/zTreeStyle/zTreeStyle.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/zTree.v3/3.5.33/css/metroStyle/metroStyle.min.css" rel="stylesheet">
+	<link th:href="@{{url}/bower_components/bootstrap/dist/css/bootstrap.min.css(url=${staticUrl})}" rel="stylesheet">
+	<link th:href="@{{url}/bower_components/simditor/styles/simditor.css(url=${staticUrl})}" rel="stylesheet">
+    <link th:href="@{{url}/bower_components/ztree/css/metroStyle/metroStyle.css(url=${staticUrl})}" rel="stylesheet">
     <style type="text/css">
 		.ztree li span.button.add {margin-left:2px; margin-right: -1px; background-position:-144px 0; vertical-align:top; *vertical-align:middle}
 	</style>
@@ -72,18 +71,16 @@
 	</div>
 	
 
-	<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
-	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-	<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script th:src="@{{url}/bower_components/jquery/dist/jquery.min.js(url=${staticUrl})}" type="text/javascript"></script>
+	<script th:src="@{{url}/bower_components/bootstrap/dist/js/bootstrap.min.js(url=${staticUrl})}" type="text/javascript"></script>
+	<script th:src="@{{url}/js/common.js(url=${staticUrl})}" type="text/javascript"></script>
 	
-	<script src="https://cdn.bootcss.com/simple-module/2.0.6/simple-module.min.js"></script>
-	<script src="https://cdn.bootcss.com/mycolorway-simple-hotkeys/1.0.3/hotkeys.min.js"></script>
-	<script src="https://cdn.bootcss.com/simple-uploader/3.0.0/simple-uploader.min.js"></script>
-	<script src="https://cdn.bootcss.com/simditor/2.3.6/lib/simditor.min.js"></script>
-	
-	<script src="https://cdn.bootcss.com/zTree.v3/3.5.33/js/jquery.ztree.all.min.js"></script>
-	<script th:src="@{{url}/js/common.js(url=${staticurl})}" type="text/javascript"></script>
+	<script th:src="@{{url}/bower_components/simple-module/lib/module.js(url=${staticUrl})}" type="text/javascript"></script>
+	<script th:src="@{{url}/bower_components/simple-hotkeys/lib/hotkeys.js(url=${staticUrl})}" type="text/javascript"></script>
+	<script th:src="@{{url}/bower_components/simple-uploader/lib/uploader.js(url=${staticUrl})}" type="text/javascript"></script>
+	<script th:src="@{{url}/bower_components/simditor/lib/simditor.js(url=${staticUrl})}" type="text/javascript"></script>
+	<script th:src="@{{url}/bower_components/ztree/js/jquery.ztree.all-3.5.min.js(url=${staticUrl})}" type="text/javascript"></script>
+
 	
 	<script th:inline="javascript">
 	

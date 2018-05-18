@@ -35,7 +35,7 @@ public class BlogController {
     
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String home(Model model) {
-    	model.addAttribute("staticurl", userProperties.getStaticUrl());
+    	model.addAttribute("staticUrl", userProperties.getStaticUrl());
         return "blog/create";
     }
 

@@ -42,7 +42,7 @@ public class LoginController {
 	public String home(Model model) {
 		logger.info("Welcome home!");
 		model.addAttribute("user",ShiroUser.getUser());
-		model.addAttribute("staticurl", userProperties.getStaticUrl());
+		model.addAttribute("staticUrl", userProperties.getStaticUrl());
 		return "home";
 	}
 
@@ -58,19 +58,19 @@ public class LoginController {
 
 	@RequestMapping(value = "/unauth", method = RequestMethod.GET)
 	public String unauth(Model model) {
-		model.addAttribute("staticurl", userProperties.getStaticUrl());
+		model.addAttribute("staticUrl", userProperties.getStaticUrl());
 		return "unauth";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Model model) {
-		model.addAttribute("staticurl", userProperties.getStaticUrl());
+		model.addAttribute("staticUrl", userProperties.getStaticUrl());
 		return "login";
 	}
 	
 	@RequestMapping(value="/register", method = RequestMethod.GET)
 	public String addUserPage(Model model){
-		model.addAttribute("staticurl", userProperties.getStaticUrl());
+		model.addAttribute("staticUrl", userProperties.getStaticUrl());
 		return "user/register";
 	}
 	
