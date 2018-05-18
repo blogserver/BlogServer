@@ -29,12 +29,12 @@
         <!--页面中心内容-->
         <div class="row">
         	<!--左侧导航-->
-        	<div class="col-md-2 col-xs-3" id="left">
+        	<div class="col-md-2 col-sm-12" id="left">
         		<input type="hidden" id = "blogUserId" value="${blog.createuser}">
         		<input type="hidden" id = "blogUUID" value="${blog.uuid}">
         	</div>
         	<!--博客详细内容-->
-        	<div class="col-md-8 col-xs-6" id="center">
+        	<div class="col-md-8 col-sm-12" id="center">
         		<h3>${blog.title}</h3>
         		<h5>创建时间:${blog.createtimestr}</h5>
 	        	${blog.content}
@@ -53,12 +53,12 @@
 				<h4>评论</h4>
 	        	<form class="form-horizontal">
 				  <div class="form-group">
-					  <div class="col-md-12 col-xs-12">
+					  <div class="col-md-12 col-sm-12">
 						<textarea id="commentContent" class="form-control" rows="5"></textarea>
 					  </div>
 				  </div>
   			      <div class="form-group">
-						<div class="col-md-12 col-xs-12 commentBtn">
+						<div class="col-md-12 col-sm-12 commentBtn">
 						  <button onclick="commentCancelBtn()" type="button" class="btn btn-default">
 							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>取消
 						  </button>
@@ -73,13 +73,31 @@
 				</div>
         	</div>
         	<!--右侧导航-->
-        	<div class="col-md-2 col-xs-3" id="right">右侧</div>
+        	<div class="col-md-2 col-xs-12" id="right">右侧</div>
         </div>
         <!--页面脚-->
         <div class="row" id="footer">
         </div>
     </div>
     
+    <!--登录框-->
+	<div class="modal fade"  id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog  modal-sm" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">提示框</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>您还没有登录，请确认是否登录</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	        <button type="button" class="btn btn-primary" onclick="goLoginPage()">登录</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 	<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
     <script src="${staticUrl}/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
@@ -91,22 +109,3 @@
     
 </body>
 </html>
-
-<!--登录框-->
-<div class="modal fade"  id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog  modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">提示框</h4>
-      </div>
-      <div class="modal-body">
-        <p>您还没有登录，请确认是否登录</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary" onclick="goLoginPage()">登录</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
