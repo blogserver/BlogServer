@@ -58,7 +58,7 @@ public class BlogServiceImpl implements BlogService {
 		return false;
 	}
 	
-    @Scheduled(cron = "0 0/10 * * * ?") // 每分钟执行一次
+    @Scheduled(cron = "0 0/3 * * * ?") // 每分钟执行一次
     public void work() throws Exception {
     	
     	List<Blog> blogList = blogMapper.findBlogsByStatus(Constant.BLOGSTATUS.START_RELEASE);
