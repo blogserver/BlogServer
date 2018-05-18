@@ -29,9 +29,8 @@
             	<div id="searchKey">
             		<form class="form-horizontal">
 					  <div class="form-group">
-						<label for="inputSearch" class="col-sm-1 control-label">Band</label>
-						<div class="col-sm-9">
-						  <input type="email" class="form-control" id="inputSearch" placeholder="Email">
+						<div class="col-sm-8">
+						  <input type="text" class="form-control" id="inputSearch">
 						</div>
 						<div class="col-sm-2">
 							<button type="button" onclick="inputSearchBtn()" class="btn btn-default">搜索</button>

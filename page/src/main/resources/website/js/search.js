@@ -13,7 +13,8 @@ $(function() {
 
 function inputSearchBtn(){
 	var key = $("#inputSearch").val();
-	search(encodeURI(key),0,10);
+	var url = BaseHttpsUrl+"/search.html?q=";
+	this.location.href=url+key;
 }
 
 function search(q,start,rows){
