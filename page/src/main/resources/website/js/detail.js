@@ -190,11 +190,28 @@ function collectBtn(){
 function checkLogin(){
 	var username=getCookie('username');
 	if(username==null||username==undefined||username==""){
-		console.log("用户没有登录，跳转登录页面");
-		window.open(BaseHttpsUrl+"/user/");
+		console.log("用户没有登录，确认是否登录");
+		$('#myModal').modal('show');
+//		window.open(BaseHttpsUrl+"/user/");
 		return false;
 	}
 	return true;
+}
+/**
+ * 跳转到登录页面
+ */
+function goLoginPage(){
+	console.log("跳转到登录页面");
+	$('#myModal').modal('hide');
+	var login = document.createElement("a");  
+    login.setAttribute("href", BaseHttpsUrl+"/user/");  
+    login.setAttribute("target", "_blank");  
+    login.setAttribute("id", "loginpoint");  
+    // 防止反复添加  
+    if(!document.getElementById("loginpoint")) {                       
+        document.body.appendChild(login);  
+    }  
+    login.click();  
 }
 
 function likeUserServer(status){
