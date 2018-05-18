@@ -9,3 +9,8 @@ body{
 .commentBtn{
 	text-align: right;
 }
+
+#blogCounts{
+	margin: 15px 0px;
+	font-size: 18px;
+}

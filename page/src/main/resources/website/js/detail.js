@@ -30,7 +30,7 @@ function userInfo(){
 			var result = JSON.parse(res);
 			if(result.code == 0){
 				var data = result.data;
-				$("#left").html('<div>'+data.loginname+'</div><button class="btn btn-sm btn-default" onclick="followBtn()" type="submit">关注</button>');
+				$("#left").html('<div id="blogAuthor"><h3>'+data.loginname+'&nbsp;<span class="label label-default" onclick="followBtn()">关注</span></h3></div>');
 				blogInfo();
 			}else{
 				alert("返回内容错误");
@@ -83,7 +83,7 @@ function blogInfo(){
 				if(data==null||data==undefined||data==""){
 					return;
 				}
-				$("#left").append("<p>访问"+data.visit+"<br/>喜欢"+data.like+"<br/>讨厌"+data.hate+"<br/>收藏"+data.collect+"</p>");
+				$("#left").append("<div id='blogCounts'><p>访问&nbsp;"+data.visit+"</p><p>喜欢&nbsp;"+data.like+"</p><p>讨厌&nbsp;"+data.hate+"</p><p>收藏&nbsp;"+data.collect+"</p></div>");
 			}else{
 				alert("返回内容错误");
 			}
